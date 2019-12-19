@@ -1,0 +1,109 @@
+{
+    "name": "StockTwits",
+    "description": "StockTwits is a real-time social network for investors and traders. Download our app and visit StockTwits.com.",
+    "image": "http:\/\/kinlane-productions.s3.amazonaws.com\/screen-capture-api\/944-stocktwits.jpg",
+    "tags": [
+        "financial",
+        "financial services",
+        "general data",
+        "have api",
+        "markets",
+        "service api",
+        "social",
+        "stocks",
+        "stocktwits",
+        "target",
+        "twitter"
+    ],
+    "created": "2019-12-19",
+    "modified": "2019-12-19",
+    "url": "https:\/\/raw.githubusercontent.com\/api-evangelist\/stocktwits\/master\/apis.json",
+    "specificationVersion": "0.14",
+    "apis": [],
+    "x-common": [
+        {
+            "type": "Authentication",
+            "url": "https:\/\/api.stocktwits.com\/developers\/docs\/authentication"
+        },
+        {
+            "type": "Base",
+            "url": "http:\/\/api.stocktwits.com"
+        },
+        {
+            "type": "Blog",
+            "url": "http:\/\/blog.stocktwits.com"
+        },
+        {
+            "type": "Blog RSS",
+            "url": "http:\/\/blog.stocktwits.com\/feed\/"
+        },
+        {
+            "type": "Branding",
+            "url": "https:\/\/api.stocktwits.com\/developers\/docs\/logos"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "http:\/\/www.crunchbase.com\/company\/stocktwits"
+        },
+        {
+            "type": "Crunchbase",
+            "url": "https:\/\/crunchbase.com\/organization\/stocktwits"
+        },
+        {
+            "type": "Developers",
+            "url": "http:\/\/stocktwits.com\/developers"
+        },
+        {
+            "type": "Documentation",
+            "url": "https:\/\/api.stocktwits.com\/developers\/docs\/api"
+        },
+        {
+            "type": "Email",
+            "url": "privacy@stocktwits.com"
+        },
+        {
+            "type": "Email",
+            "url": "parents@stocktwits.com"
+        },
+        {
+            "type": "Email",
+            "url": "support@stocktwits.com"
+        },
+        {
+            "type": "Email",
+            "url": "abuse@stocktwits.com"
+        },
+        {
+            "type": "Embeddable",
+            "url": "https:\/\/api.stocktwits.com\/developers\/docs\/stocktwits-for-websites"
+        },
+        {
+            "type": "Getting Started",
+            "url": "https:\/\/api.stocktwits.com\/developers\/docs\/start"
+        },
+        {
+            "type": "Github",
+            "url": "https:\/\/github.com\/stocktwits"
+        },
+        {
+            "type": "Rate Limits",
+            "url": "https:\/\/api.stocktwits.com\/developers\/docs\/rate_limiting"
+        },
+        {
+            "type": "Status",
+            "url": "http:\/\/api-status.stocktwits.com\/"
+        },
+        {
+            "type": "Terms of Service",
+            "url": "https:\/\/api.stocktwits.com\/developers\/api-terms"
+        },
+        {
+            "type": "Twitter",
+            "url": "https:\/\/twitter.com\/stocktwits"
+        },
+        {
+            "type": "Website",
+            "url": "http:\/\/stocktwits.com"
+        }
+    ]
+}
