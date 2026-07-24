@@ -1,0 +1,359 @@
+openapi: 3.0.3
+info:
+  title: StockTwits Account Watchlists API
+  description: The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.
+  version: '2.0'
+  contact:
+    name: StockTwits
+    url: https://stocktwits.com
+  termsOfService: https://stocktwits.com/terms
+  x-jentic-source-url: https://raw.githubusercontent.com/sophie-jentic/openapi-specs/refs/heads/import-jentic-pr-specs/stocktwits.com/stocktwits-api/2.0/openapi.json
+servers:
+- url: https://api.stocktwits.com/api/2
+  description: StockTwits API v2 Production
+security:
+- {}
+- oauth2: []
+tags:
+- name: Watchlists
+  description: Watchlist management endpoints for creating and managing symbol watchlists.
+paths:
+  /watchlists.json:
+    get:
+      operationId: getWatchlists
+      summary: List Watchlists
+      description: Returns all watchlists for the authenticated user.
+      tags:
+      - Watchlists
+      security:
+      - oauth2:
+        - watchlists
+      responses:
+        '200':
+          description: Successful response with watchlists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  watchlists:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Watchlist'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /watchlists/create.json:
+    post:
+      operationId: createWatchlist
+      summary: Create Watchlist
+      description: Creates a new watchlist for the authenticated user.
+      tags:
+      - Watchlists
+      security:
+      - oauth2:
+        - watchlists
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: The name of the watchlist
+      responses:
+        '200':
+          description: Watchlist created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  watchlist:
+                    $ref: '#/components/schemas/Watchlist'
+  /watchlists/update/{watchlist_id}.json:
+    post:
+      operationId: updateWatchlist
+      summary: Update Watchlist
+      description: Updates the name of an existing watchlist.
+      tags:
+      - Watchlists
+      security:
+      - oauth2:
+        - watchlists
+      parameters:
+      - name: watchlist_id
+        in: path
+        required: true
+        description: The watchlist ID
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - name
+              properties:
+                name:
+                  type: string
+                  description: The new name of the watchlist
+      responses:
+        '200':
+          description: Watchlist updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  watchlist:
+                    $ref: '#/components/schemas/Watchlist'
+  /watchlists/destroy/{watchlist_id}.json:
+    post:
+      operationId: deleteWatchlist
+      summary: Delete Watchlist
+      description: Deletes an existing watchlist.
+      tags:
+      - Watchlists
+      security:
+      - oauth2:
+        - watchlists
+      parameters:
+      - name: watchlist_id
+        in: path
+        required: true
+        description: The watchlist ID to delete
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Watchlist deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  watchlist:
+                    $ref: '#/components/schemas/Watchlist'
+  /watchlists/{watchlist_id}/symbols/create.json:
+    post:
+      operationId: addSymbolToWatchlist
+      summary: Add Symbol to Watchlist
+      description: Adds symbols to an existing watchlist.
+      tags:
+      - Watchlists
+      security:
+      - oauth2:
+        - watchlists
+      parameters:
+      - name: watchlist_id
+        in: path
+        required: true
+        description: The watchlist ID
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - symbols
+              properties:
+                symbols:
+                  type: string
+                  description: Comma-separated list of ticker symbols to add (e.g. AAPL,TSLA,GOOG)
+      responses:
+        '200':
+          description: Symbols added successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  watchlist:
+                    $ref: '#/components/schemas/Watchlist'
+  /watchlists/{watchlist_id}/symbols/destroy.json:
+    post:
+      operationId: removeSymbolFromWatchlist
+      summary: Remove Symbol from Watchlist
+      description: Removes symbols from an existing watchlist.
+      tags:
+      - Watchlists
+      security:
+      - oauth2:
+        - watchlists
+      parameters:
+      - name: watchlist_id
+        in: path
+        required: true
+        description: The watchlist ID
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - symbols
+              properties:
+                symbols:
+                  type: string
+                  description: Comma-separated list of ticker symbols to remove
+      responses:
+        '200':
+          description: Symbols removed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  watchlist:
+                    $ref: '#/components/schemas/Watchlist'
+  /watchlists/show/{watchlist_id}.json:
+    get:
+      operationId: getWatchlist
+      summary: Show Watchlist
+      description: Returns the specified watchlist with its symbols.
+      tags:
+      - Watchlists
+      security:
+      - oauth2:
+        - watchlists
+      parameters:
+      - name: watchlist_id
+        in: path
+        required: true
+        description: The watchlist ID
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response with watchlist details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  watchlist:
+                    $ref: '#/components/schemas/Watchlist'
+components:
+  schemas:
+    Symbol:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique symbol ID
+        symbol:
+          type: string
+          description: The ticker symbol (e.g. AAPL)
+        title:
+          type: string
+          description: The full company/asset name
+        aliases:
+          type: array
+          items:
+            type: string
+          description: Alternative names or aliases
+        is_following:
+          type: boolean
+          description: Whether the authenticated user is following this symbol
+        has_pricing:
+          type: boolean
+          description: Whether pricing data is available for this symbol
+        watchlist_count:
+          type: integer
+          description: Number of users who have this symbol in their watchlist
+    ResponseStatus:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
+    Watchlist:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique watchlist ID
+        name:
+          type: string
+          description: The watchlist name
+        static:
+          type: boolean
+          description: Whether the watchlist is a default/static list
+        updated_at:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        symbols:
+          type: array
+          items:
+            $ref: '#/components/schemas/Symbol'
+    ErrorResponse:
+      type: object
+      properties:
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: StockTwits uses OAuth 2.0 for authentication. Some endpoints are available without authentication using just an access_token query parameter.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.stocktwits.com/api/2/oauth/authorize
+          tokenUrl: https://api.stocktwits.com/api/2/oauth/token
+          scopes:
+            read: Read access to public data
+            publish_messages: Create and interact with messages
+            publish_watch_lists: Create and manage watchlists
+            follow_users: Follow and unfollow users
+            follow_stocks: Follow and unfollow stocks
+    accessToken:
+      type: apiKey
+      in: query
+      name: access_token
+      description: Access token passed as a query parameter. Can be an application-level token for public endpoints or a user-level OAuth token for authenticated endpoints.
+externalDocs:
+  description: StockTwits API Documentation
+  url: https://api.stocktwits.com/developers/docs/api

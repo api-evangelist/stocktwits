@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  title: StockTwits Account Graph (Social) API
+  description: The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.
+  version: '2.0'
+  contact:
+    name: StockTwits
+    url: https://stocktwits.com
+  termsOfService: https://stocktwits.com/terms
+  x-jentic-source-url: https://raw.githubusercontent.com/sophie-jentic/openapi-specs/refs/heads/import-jentic-pr-specs/stocktwits.com/stocktwits-api/2.0/openapi.json
+servers:
+- url: https://api.stocktwits.com/api/2
+  description: StockTwits API v2 Production
+security:
+- {}
+- oauth2: []
+tags:
+- name: Graph (Social)
+  description: Social graph endpoints for viewing followers and following lists.
+paths:
+  /graph/user/{user_id}/following.json:
+    get:
+      operationId: getUserFollowing
+      summary: User Following
+      description: Returns the list of users the specified user is following.
+      tags:
+      - Graph (Social)
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        description: User ID or username
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with list of followed users
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+  /graph/user/{user_id}/followers.json:
+    get:
+      operationId: getUserFollowers
+      summary: User Followers
+      description: Returns the list of users following the specified user.
+      tags:
+      - Graph (Social)
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        description: User ID or username
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with list of followers
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  users:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/User'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique user ID
+        username:
+          type: string
+          description: The user's username
+        name:
+          type: string
+          description: The user's display name
+        avatar_url:
+          type: string
+          format: uri
+          description: URL to the user's avatar image
+        avatar_url_ssl:
+          type: string
+          format: uri
+          description: HTTPS URL to the user's avatar image
+        join_date:
+          type: string
+          format: date-time
+          description: Date the user joined StockTwits
+        official:
+          type: boolean
+          description: Whether the user is an official/verified account
+        followers:
+          type: integer
+          description: Number of followers
+        following:
+          type: integer
+          description: Number of users being followed
+        ideas:
+          type: integer
+          description: Number of messages posted
+        watchlist_stocks_count:
+          type: integer
+          description: Number of stocks in the user's watchlist
+        like_count:
+          type: integer
+          description: Number of likes received
+        classification:
+          type: array
+          items:
+            type: string
+          description: User classification tags (e.g. suggested, official)
+    ResponseStatus:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: StockTwits uses OAuth 2.0 for authentication. Some endpoints are available without authentication using just an access_token query parameter.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.stocktwits.com/api/2/oauth/authorize
+          tokenUrl: https://api.stocktwits.com/api/2/oauth/token
+          scopes:
+            read: Read access to public data
+            publish_messages: Create and interact with messages
+            publish_watch_lists: Create and manage watchlists
+            follow_users: Follow and unfollow users
+            follow_stocks: Follow and unfollow stocks
+    accessToken:
+      type: apiKey
+      in: query
+      name: access_token
+      description: Access token passed as a query parameter. Can be an application-level token for public endpoints or a user-level OAuth token for authenticated endpoints.
+externalDocs:
+  description: StockTwits API Documentation
+  url: https://api.stocktwits.com/developers/docs/api

@@ -1,0 +1,114 @@
+openapi: 3.0.3
+info:
+  title: StockTwits Account Deletions API
+  description: The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.
+  version: '2.0'
+  contact:
+    name: StockTwits
+    url: https://stocktwits.com
+  termsOfService: https://stocktwits.com/terms
+  x-jentic-source-url: https://raw.githubusercontent.com/sophie-jentic/openapi-specs/refs/heads/import-jentic-pr-specs/stocktwits.com/stocktwits-api/2.0/openapi.json
+servers:
+- url: https://api.stocktwits.com/api/2
+  description: StockTwits API v2 Production
+security:
+- {}
+- oauth2: []
+tags:
+- name: Deletions
+  description: Deletion tracking endpoints for finding messages and users that have been removed.
+paths:
+  /deletions/messages.json:
+    get:
+      operationId: getDeletedMessages
+      summary: Deleted Messages
+      description: Returns a list of message IDs that have been deleted since the specified ID.
+      tags:
+      - Deletions
+      parameters:
+      - name: since
+        in: query
+        required: true
+        description: Returns deleted message IDs greater than this ID
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response with deleted message IDs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  messages:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        user_id:
+                          type: integer
+  /deletions/users.json:
+    get:
+      operationId: getDeletedUsers
+      summary: Deleted Users
+      description: Returns a list of user IDs that have been deleted since the specified ID.
+      tags:
+      - Deletions
+      parameters:
+      - name: since
+        in: query
+        required: true
+        description: Returns deleted user IDs greater than this ID
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response with deleted user IDs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  users:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+components:
+  schemas:
+    ResponseStatus:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: StockTwits uses OAuth 2.0 for authentication. Some endpoints are available without authentication using just an access_token query parameter.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.stocktwits.com/api/2/oauth/authorize
+          tokenUrl: https://api.stocktwits.com/api/2/oauth/token
+          scopes:
+            read: Read access to public data
+            publish_messages: Create and interact with messages
+            publish_watch_lists: Create and manage watchlists
+            follow_users: Follow and unfollow users
+            follow_stocks: Follow and unfollow stocks
+    accessToken:
+      type: apiKey
+      in: query
+      name: access_token
+      description: Access token passed as a query parameter. Can be an application-level token for public endpoints or a user-level OAuth token for authenticated endpoints.
+externalDocs:
+  description: StockTwits API Documentation
+  url: https://api.stocktwits.com/developers/docs/api

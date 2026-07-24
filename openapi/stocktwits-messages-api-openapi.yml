@@ -1,0 +1,393 @@
+openapi: 3.0.3
+info:
+  title: StockTwits Account Messages API
+  description: The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.
+  version: '2.0'
+  contact:
+    name: StockTwits
+    url: https://stocktwits.com
+  termsOfService: https://stocktwits.com/terms
+  x-jentic-source-url: https://raw.githubusercontent.com/sophie-jentic/openapi-specs/refs/heads/import-jentic-pr-specs/stocktwits.com/stocktwits-api/2.0/openapi.json
+servers:
+- url: https://api.stocktwits.com/api/2
+  description: StockTwits API v2 Production
+security:
+- {}
+- oauth2: []
+tags:
+- name: Messages
+  description: Message endpoints for creating, viewing, liking, and managing individual messages (twits).
+paths:
+  /messages/show/{message_id}.json:
+    get:
+      operationId: getMessage
+      summary: Show Message
+      description: Returns the specified message by ID.
+      tags:
+      - Messages
+      parameters:
+      - name: message_id
+        in: path
+        required: true
+        description: The message ID
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Successful response with the message
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  message:
+                    $ref: '#/components/schemas/Message'
+        '404':
+          description: Message not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /messages/create.json:
+    post:
+      operationId: createMessage
+      summary: Create Message
+      description: Creates a new message (twit) for the authenticated user.
+      tags:
+      - Messages
+      security:
+      - oauth2:
+        - publish_messages
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - body
+              properties:
+                body:
+                  type: string
+                  description: The body of the message. Must include a $TICKER symbol (e.g. $AAPL). Max 1000 characters.
+                  maxLength: 1000
+                in_reply_to_message_id:
+                  type: integer
+                  description: The ID of the message being replied to
+                sentiment:
+                  type: string
+                  description: The sentiment of the message
+                  enum:
+                  - bullish
+                  - bearish
+                chart:
+                  type: string
+                  format: binary
+                  description: A chart image to attach to the message
+      responses:
+        '200':
+          description: Message created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  message:
+                    $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '422':
+          description: Validation error (e.g. missing ticker symbol)
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /messages/like.json:
+    post:
+      operationId: likeMessage
+      summary: Like Message
+      description: Likes a message for the authenticated user.
+      tags:
+      - Messages
+      security:
+      - oauth2:
+        - publish_messages
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: integer
+                  description: The ID of the message to like
+      responses:
+        '200':
+          description: Message liked successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  message:
+                    $ref: '#/components/schemas/Message'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /messages/unlike.json:
+    post:
+      operationId: unlikeMessage
+      summary: Unlike Message
+      description: Unlikes a previously liked message for the authenticated user.
+      tags:
+      - Messages
+      security:
+      - oauth2:
+        - publish_messages
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - id
+              properties:
+                id:
+                  type: integer
+                  description: The ID of the message to unlike
+      responses:
+        '200':
+          description: Message unliked successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    $ref: '#/components/schemas/ResponseStatus'
+                  message:
+                    $ref: '#/components/schemas/Message'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique user ID
+        username:
+          type: string
+          description: The user's username
+        name:
+          type: string
+          description: The user's display name
+        avatar_url:
+          type: string
+          format: uri
+          description: URL to the user's avatar image
+        avatar_url_ssl:
+          type: string
+          format: uri
+          description: HTTPS URL to the user's avatar image
+        join_date:
+          type: string
+          format: date-time
+          description: Date the user joined StockTwits
+        official:
+          type: boolean
+          description: Whether the user is an official/verified account
+        followers:
+          type: integer
+          description: Number of followers
+        following:
+          type: integer
+          description: Number of users being followed
+        ideas:
+          type: integer
+          description: Number of messages posted
+        watchlist_stocks_count:
+          type: integer
+          description: Number of stocks in the user's watchlist
+        like_count:
+          type: integer
+          description: Number of likes received
+        classification:
+          type: array
+          items:
+            type: string
+          description: User classification tags (e.g. suggested, official)
+    ResponseStatus:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
+    ErrorResponse:
+      type: object
+      properties:
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique message ID
+        body:
+          type: string
+          description: The message body text
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the message was created
+        user:
+          $ref: '#/components/schemas/User'
+        source:
+          type: object
+          properties:
+            id:
+              type: integer
+            title:
+              type: string
+            url:
+              type: string
+              format: uri
+        symbols:
+          type: array
+          items:
+            $ref: '#/components/schemas/Symbol'
+        entities:
+          type: object
+          properties:
+            sentiment:
+              type: object
+              nullable: true
+              properties:
+                basic:
+                  type: string
+                  enum:
+                  - Bullish
+                  - Bearish
+                  description: The sentiment of the message
+            chart:
+              type: object
+              nullable: true
+              properties:
+                thumb:
+                  type: string
+                  format: uri
+                large:
+                  type: string
+                  format: uri
+                original:
+                  type: string
+                  format: uri
+                url:
+                  type: string
+                  format: uri
+        conversation:
+          type: object
+          nullable: true
+          properties:
+            parent_message_id:
+              type: integer
+            in_reply_to_message_id:
+              type: integer
+            parent:
+              type: boolean
+            replies:
+              type: integer
+        likes:
+          type: object
+          properties:
+            total:
+              type: integer
+            user_ids:
+              type: array
+              items:
+                type: integer
+        reshares:
+          type: object
+          properties:
+            reshared_count:
+              type: integer
+            user_ids:
+              type: array
+              items:
+                type: integer
+    Symbol:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique symbol ID
+        symbol:
+          type: string
+          description: The ticker symbol (e.g. AAPL)
+        title:
+          type: string
+          description: The full company/asset name
+        aliases:
+          type: array
+          items:
+            type: string
+          description: Alternative names or aliases
+        is_following:
+          type: boolean
+          description: Whether the authenticated user is following this symbol
+        has_pricing:
+          type: boolean
+          description: Whether pricing data is available for this symbol
+        watchlist_count:
+          type: integer
+          description: Number of users who have this symbol in their watchlist
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: StockTwits uses OAuth 2.0 for authentication. Some endpoints are available without authentication using just an access_token query parameter.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.stocktwits.com/api/2/oauth/authorize
+          tokenUrl: https://api.stocktwits.com/api/2/oauth/token
+          scopes:
+            read: Read access to public data
+            publish_messages: Create and interact with messages
+            publish_watch_lists: Create and manage watchlists
+            follow_users: Follow and unfollow users
+            follow_stocks: Follow and unfollow stocks
+    accessToken:
+      type: apiKey
+      in: query
+      name: access_token
+      description: Access token passed as a query parameter. Can be an application-level token for public endpoints or a user-level OAuth token for authenticated endpoints.
+externalDocs:
+  description: StockTwits API Documentation
+  url: https://api.stocktwits.com/developers/docs/api

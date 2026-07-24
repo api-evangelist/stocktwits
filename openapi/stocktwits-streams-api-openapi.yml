@@ -1,0 +1,570 @@
+openapi: 3.0.3
+info:
+  title: StockTwits Account Streams API
+  description: The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.
+  version: '2.0'
+  contact:
+    name: StockTwits
+    url: https://stocktwits.com
+  termsOfService: https://stocktwits.com/terms
+  x-jentic-source-url: https://raw.githubusercontent.com/sophie-jentic/openapi-specs/refs/heads/import-jentic-pr-specs/stocktwits.com/stocktwits-api/2.0/openapi.json
+servers:
+- url: https://api.stocktwits.com/api/2
+  description: StockTwits API v2 Production
+security:
+- {}
+- oauth2: []
+tags:
+- name: Streams
+  description: Stream endpoints return collections of messages (twits). Streams can be filtered by symbol, user, trending, etc.
+paths:
+  /streams/symbol/{symbol}.json:
+    get:
+      operationId: getSymbolStream
+      summary: Symbol Stream
+      description: Returns the most recent messages for the specified symbol. This stream includes all messages that contain the specified symbol, including those from private accounts if the authenticated user follows them.
+      tags:
+      - Streams
+      parameters:
+      - name: symbol
+        in: path
+        required: true
+        description: Ticker symbol, e.g. AAPL, TSLA
+        schema:
+          type: string
+      - name: since
+        in: query
+        description: Returns results with an ID greater than the specified ID
+        schema:
+          type: integer
+      - name: max
+        in: query
+        description: Returns results with an ID less than or equal to the specified ID
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: Number of results to return (default 30, max 30)
+        schema:
+          type: integer
+          default: 30
+          maximum: 30
+      - name: filter
+        in: query
+        description: Filter messages by links, charts, or videos
+        schema:
+          type: string
+          enum:
+          - links
+          - charts
+          - videos
+      responses:
+        '200':
+          description: Successful response with messages for the symbol
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamResponse'
+        '404':
+          description: Symbol not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /streams/user/{user_id}.json:
+    get:
+      operationId: getUserStream
+      summary: User Stream
+      description: Returns the most recent messages for the specified user.
+      tags:
+      - Streams
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        description: User ID or username
+        schema:
+          type: string
+      - name: since
+        in: query
+        description: Returns results with an ID greater than the specified ID
+        schema:
+          type: integer
+      - name: max
+        in: query
+        description: Returns results with an ID less than or equal to the specified ID
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: Number of results to return (default 30, max 30)
+        schema:
+          type: integer
+          default: 30
+          maximum: 30
+      - name: filter
+        in: query
+        description: Filter messages by links, charts, or videos
+        schema:
+          type: string
+          enum:
+          - links
+          - charts
+          - videos
+      responses:
+        '200':
+          description: Successful response with messages for the user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamResponse'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /streams/home.json:
+    get:
+      operationId: getHomeStream
+      summary: Home Stream
+      description: Returns the most recent messages from the authenticated user's home stream, including messages from users and symbols they follow.
+      tags:
+      - Streams
+      security:
+      - oauth2: []
+      parameters:
+      - name: since
+        in: query
+        description: Returns results with an ID greater than the specified ID
+        schema:
+          type: integer
+      - name: max
+        in: query
+        description: Returns results with an ID less than or equal to the specified ID
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: Number of results to return (default 30, max 30)
+        schema:
+          type: integer
+          default: 30
+          maximum: 30
+      - name: filter
+        in: query
+        description: Filter messages by links, charts, or videos
+        schema:
+          type: string
+          enum:
+          - links
+          - charts
+          - videos
+      responses:
+        '200':
+          description: Successful response with home stream messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamResponse'
+        '401':
+          description: Unauthorized - authentication required
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /streams/friends.json:
+    get:
+      operationId: getFriendsStream
+      summary: Friends Stream
+      description: Returns the most recent messages from users the authenticated user follows.
+      tags:
+      - Streams
+      security:
+      - oauth2: []
+      parameters:
+      - name: since
+        in: query
+        description: Returns results with an ID greater than the specified ID
+        schema:
+          type: integer
+      - name: max
+        in: query
+        description: Returns results with an ID less than or equal to the specified ID
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: Number of results to return (default 30, max 30)
+        schema:
+          type: integer
+          default: 30
+          maximum: 30
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /streams/trending.json:
+    get:
+      operationId: getTrendingStream
+      summary: Trending Stream
+      description: Returns the most recent messages with trending sentiment on StockTwits.
+      tags:
+      - Streams
+      parameters:
+      - name: since
+        in: query
+        description: Returns results with an ID greater than the specified ID
+        schema:
+          type: integer
+      - name: max
+        in: query
+        description: Returns results with an ID less than or equal to the specified ID
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: Number of results to return (default 30, max 30)
+        schema:
+          type: integer
+          default: 30
+          maximum: 30
+      responses:
+        '200':
+          description: Successful response with trending messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamResponse'
+  /streams/all.json:
+    get:
+      operationId: getAllStream
+      summary: All Stream
+      description: Returns the most recent messages across StockTwits.
+      tags:
+      - Streams
+      parameters:
+      - name: since
+        in: query
+        description: Returns results with an ID greater than the specified ID
+        schema:
+          type: integer
+      - name: max
+        in: query
+        description: Returns results with an ID less than or equal to the specified ID
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: Number of results to return (default 30, max 30)
+        schema:
+          type: integer
+          default: 30
+          maximum: 30
+      - name: filter
+        in: query
+        description: Filter messages by links, charts, or videos
+        schema:
+          type: string
+          enum:
+          - links
+          - charts
+          - videos
+      responses:
+        '200':
+          description: Successful response with all stream messages
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamResponse'
+  /streams/watchlist/{watchlist_id}.json:
+    get:
+      operationId: getWatchlistStream
+      summary: Watchlist Stream
+      description: Returns the most recent messages for the symbols in the specified watchlist.
+      tags:
+      - Streams
+      security:
+      - oauth2: []
+      parameters:
+      - name: watchlist_id
+        in: path
+        required: true
+        description: The watchlist ID
+        schema:
+          type: integer
+      - name: since
+        in: query
+        description: Returns results with an ID greater than the specified ID
+        schema:
+          type: integer
+      - name: max
+        in: query
+        description: Returns results with an ID less than or equal to the specified ID
+        schema:
+          type: integer
+      - name: limit
+        in: query
+        description: Number of results to return (default 30, max 30)
+        schema:
+          type: integer
+          default: 30
+          maximum: 30
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StreamResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique user ID
+        username:
+          type: string
+          description: The user's username
+        name:
+          type: string
+          description: The user's display name
+        avatar_url:
+          type: string
+          format: uri
+          description: URL to the user's avatar image
+        avatar_url_ssl:
+          type: string
+          format: uri
+          description: HTTPS URL to the user's avatar image
+        join_date:
+          type: string
+          format: date-time
+          description: Date the user joined StockTwits
+        official:
+          type: boolean
+          description: Whether the user is an official/verified account
+        followers:
+          type: integer
+          description: Number of followers
+        following:
+          type: integer
+          description: Number of users being followed
+        ideas:
+          type: integer
+          description: Number of messages posted
+        watchlist_stocks_count:
+          type: integer
+          description: Number of stocks in the user's watchlist
+        like_count:
+          type: integer
+          description: Number of likes received
+        classification:
+          type: array
+          items:
+            type: string
+          description: User classification tags (e.g. suggested, official)
+    ResponseStatus:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
+    ErrorResponse:
+      type: object
+      properties:
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
+    Message:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique message ID
+        body:
+          type: string
+          description: The message body text
+        created_at:
+          type: string
+          format: date-time
+          description: Timestamp when the message was created
+        user:
+          $ref: '#/components/schemas/User'
+        source:
+          type: object
+          properties:
+            id:
+              type: integer
+            title:
+              type: string
+            url:
+              type: string
+              format: uri
+        symbols:
+          type: array
+          items:
+            $ref: '#/components/schemas/Symbol'
+        entities:
+          type: object
+          properties:
+            sentiment:
+              type: object
+              nullable: true
+              properties:
+                basic:
+                  type: string
+                  enum:
+                  - Bullish
+                  - Bearish
+                  description: The sentiment of the message
+            chart:
+              type: object
+              nullable: true
+              properties:
+                thumb:
+                  type: string
+                  format: uri
+                large:
+                  type: string
+                  format: uri
+                original:
+                  type: string
+                  format: uri
+                url:
+                  type: string
+                  format: uri
+        conversation:
+          type: object
+          nullable: true
+          properties:
+            parent_message_id:
+              type: integer
+            in_reply_to_message_id:
+              type: integer
+            parent:
+              type: boolean
+            replies:
+              type: integer
+        likes:
+          type: object
+          properties:
+            total:
+              type: integer
+            user_ids:
+              type: array
+              items:
+                type: integer
+        reshares:
+          type: object
+          properties:
+            reshared_count:
+              type: integer
+            user_ids:
+              type: array
+              items:
+                type: integer
+    Symbol:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique symbol ID
+        symbol:
+          type: string
+          description: The ticker symbol (e.g. AAPL)
+        title:
+          type: string
+          description: The full company/asset name
+        aliases:
+          type: array
+          items:
+            type: string
+          description: Alternative names or aliases
+        is_following:
+          type: boolean
+          description: Whether the authenticated user is following this symbol
+        has_pricing:
+          type: boolean
+          description: Whether pricing data is available for this symbol
+        watchlist_count:
+          type: integer
+          description: Number of users who have this symbol in their watchlist
+    StreamResponse:
+      type: object
+      properties:
+        response:
+          $ref: '#/components/schemas/ResponseStatus'
+        symbol:
+          $ref: '#/components/schemas/Symbol'
+        cursor:
+          type: object
+          properties:
+            more:
+              type: boolean
+              description: Whether there are more results available
+            since:
+              type: integer
+              description: The ID to use for the since parameter to get newer results
+            max:
+              type: integer
+              description: The ID to use for the max parameter to get older results
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: StockTwits uses OAuth 2.0 for authentication. Some endpoints are available without authentication using just an access_token query parameter.
+      flows:
+        authorizationCode:
+          authorizationUrl: https://api.stocktwits.com/api/2/oauth/authorize
+          tokenUrl: https://api.stocktwits.com/api/2/oauth/token
+          scopes:
+            read: Read access to public data
+            publish_messages: Create and interact with messages
+            publish_watch_lists: Create and manage watchlists
+            follow_users: Follow and unfollow users
+            follow_stocks: Follow and unfollow stocks
+    accessToken:
+      type: apiKey
+      in: query
+      name: access_token
+      description: Access token passed as a query parameter. Can be an application-level token for public endpoints or a user-level OAuth token for authenticated endpoints.
+externalDocs:
+  description: StockTwits API Documentation
+  url: https://api.stocktwits.com/developers/docs/api
