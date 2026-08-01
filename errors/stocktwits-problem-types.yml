@@ -1,0 +1,29 @@
+generated: '2026-07-21'
+method: derived
+format: custom
+source: openapi/stocktwits-openapi-original.json
+envelope:
+  shape: '{ "response": { "status": <int> }, "errors": [ { "message": "<string>" } ] }'
+  status_field: response.status
+  messages_field: errors[].message
+  content_type: application/json
+notes: 'StockTwits returns a custom JSON error envelope (not RFC 9457 problem+json).
+  The HTTP status carries the error class; errors[].message carries human-readable
+  detail. Derived from the OpenAPI 4xx/5xx responses.'
+problems:
+- status: 401
+  title: Unauthorized
+  detail: Authentication required — supply a valid OAuth access_token
+  remediation: Obtain a user or app-level access_token via the OAuth 2.0 flow and pass it as access_token
+- status: 404
+  title: Not found
+  detail: The requested resource (e.g. symbol, message, watchlist, or user) does not exist
+  remediation: Verify the ticker symbol / id path parameter
+- status: 422
+  title: Validation error
+  detail: The request failed validation (e.g. missing ticker symbol or required body field)
+  remediation: Check required parameters and body fields against the endpoint reference
+- status: 429
+  title: Rate limit exceeded
+  detail: The client has exceeded its allotted request rate
+  remediation: Back off and retry after the rate window resets

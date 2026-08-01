@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/stocktwits-openapi-original.json
+summary:
+  types:
+  - apiKey
+  - oauth2
+  api_key_in:
+  - query
+  oauth2_flows:
+  - authorizationCode
+schemes:
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.stocktwits.com/api/2/oauth/authorize
+    tokenUrl: https://api.stocktwits.com/api/2/oauth/token
+    scopes: 5
+  description: StockTwits uses OAuth 2.0 for authentication. Some endpoints are available without
+    authentication using just an access_token query parameter.
+  sources:
+  - openapi/stocktwits-openapi-original.json
+- name: accessToken
+  type: apiKey
+  in: query
+  parameter: access_token
+  description: Access token passed as a query parameter. Can be an application-level token for
+    public endpoints or a user-level OAuth token for authenticated endpoints.
+  sources:
+  - openapi/stocktwits-openapi-original.json

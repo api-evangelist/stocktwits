@@ -1,0 +1,60 @@
+generated: '2026-07-21'
+method: derived
+status: candidate
+source: openapi/stocktwits-openapi-original.json
+notes: 'No official or community hosted MCP server was found for StockTwits. The tools
+  below are a candidate surface derived one-per-operation from the v2 OpenAPI, provided
+  as a starting point for an agent-native integration. Not an authoritative provider
+  claim.'
+server:
+  name: stocktwits
+  transport: http
+tools:
+- name: get_symbol_stream
+  description: Get the message stream for a ticker symbol
+  source_operation: openapi/stocktwits-openapi-original.json#getSymbolStream
+- name: get_user_stream
+  description: Get a user's message stream
+  source_operation: openapi/stocktwits-openapi-original.json#getUserStream
+- name: get_home_stream
+  description: Get the authenticated user's home stream
+  source_operation: openapi/stocktwits-openapi-original.json#getHomeStream
+- name: get_trending_stream
+  description: Get the trending message stream
+  source_operation: openapi/stocktwits-openapi-original.json#getTrendingStream
+- name: get_watchlist_stream
+  description: Get the message stream for a watchlist
+  source_operation: openapi/stocktwits-openapi-original.json#getWatchlistStream
+- name: get_message
+  description: Show a single message by id
+  source_operation: openapi/stocktwits-openapi-original.json#getMessage
+- name: create_message
+  description: Create a new message (twit)
+  source_operation: openapi/stocktwits-openapi-original.json#createMessage
+- name: like_message
+  description: Like a message
+  source_operation: openapi/stocktwits-openapi-original.json#likeMessage
+- name: search
+  description: Search across symbols and users
+  source_operation: openapi/stocktwits-openapi-original.json#search
+- name: search_symbols
+  description: Search ticker symbols
+  source_operation: openapi/stocktwits-openapi-original.json#searchSymbols
+- name: get_trending_symbols
+  description: Get trending symbols
+  source_operation: openapi/stocktwits-openapi-original.json#getTrendingSymbols
+- name: get_watchlists
+  description: List the authenticated user's watchlists
+  source_operation: openapi/stocktwits-openapi-original.json#getWatchlists
+- name: create_watchlist
+  description: Create a watchlist
+  source_operation: openapi/stocktwits-openapi-original.json#createWatchlist
+- name: add_symbol_to_watchlist
+  description: Add a symbol to a watchlist
+  source_operation: openapi/stocktwits-openapi-original.json#addSymbolToWatchlist
+- name: follow_user
+  description: Follow a user
+  source_operation: openapi/stocktwits-openapi-original.json#followUser
+- name: verify_account
+  description: Verify the authenticated account
+  source_operation: openapi/stocktwits-openapi-original.json#verifyAccount

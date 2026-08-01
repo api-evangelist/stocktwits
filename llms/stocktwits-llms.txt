@@ -1,0 +1,37 @@
+# StockTwits
+
+> StockTwits is a social network for investors and traders — a "Social Finance" graph where members share ideas (twits), follow tickers and people, build watchlists, and read real-time streams of market sentiment. The StockTwits API v2 exposes this over REST/JSON at https://api.stocktwits.com/api/2 with OAuth 2.0 (authorization code) plus app-level access tokens.
+
+## APIs
+- [StockTwits API v2 — developer portal](https://api.stocktwits.com/developers)
+- [API documentation](https://api.stocktwits.com/developers/docs)
+- Base URL: https://api.stocktwits.com/api/2
+
+## Specs
+- [OpenAPI 3.0 (v2)](https://raw.githubusercontent.com/api-evangelist/stocktwits/refs/heads/main/openapi/stocktwits-openapi-original.json)
+
+## Authentication
+- OAuth 2.0 authorization code — authorize https://api.stocktwits.com/api/2/oauth/authorize, token https://api.stocktwits.com/api/2/oauth/token
+- Scopes: read, publish_messages, publish_watch_lists, follow_users, follow_stocks
+- App-level `access_token` query parameter for public endpoints
+
+## Key operations
+- Streams: getSymbolStream, getUserStream, getHomeStream, getTrendingStream, getWatchlistStream
+- Messages: getMessage, createMessage, likeMessage
+- Search: search, searchSymbols, searchUsers
+- Watchlists: getWatchlists, createWatchlist, addSymbolToWatchlist
+- Social graph: getUserFollowers, getUserFollowing, followUser, unfollowUser
+- Account: verifyAccount
+
+## Docs
+- [Developer portal](https://api.stocktwits.com/developers)
+- [Help center](https://help.stocktwits.com/)
+- [Widgets & embeds](https://stocktwits.com/widgets)
+- [Blog](https://blog.stocktwits.com/)
+- [Terms](https://stocktwits.com/about/legal/terms/)
+- [Privacy](https://stocktwits.com/about/legal/privacy)
+
+## Notes
+- Pagination: cursor via since / max / limit (default & max 30)
+- Errors: custom envelope { response: { status }, errors: [ { message } ] }; 401/404/422/429
+- Developer registration is under review as of 2026-07; contact developers@stocktwits.com

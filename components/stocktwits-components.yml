@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://stocktwits.com/widgets + https://help.stocktwits.com/c/key-features/features/widgets-embed + https://api.stocktwits.com/developers
+notes: 'StockTwits publishes embeddable, client-side surfaces (a "Social Finance layer")
+  distinct from server-side API clients: real-time widgets, social buttons, and message
+  embeds added to any site with a snippet of markup/JS.'
+families:
+- name: Widgets
+  description: Embeddable real-time market-data widgets (e.g. Trending Stocks Widget)
+    added with a single line of code; free and customizable.
+  url: https://stocktwits.com/widgets
+  docs: https://help.stocktwits.com/c/key-features/features/widgets-embed
+- name: Buttons
+  description: Social buttons — Share, Follow, Mention, Message — modeled on Facebook/Twitter
+    style buttons for deeper StockTwits integration.
+  url: https://api.stocktwits.com/developers
+- name: Message embeds
+  description: Embeddable StockTwits messages (twits) for bloggers and media to paste
+    into a CMS.
+  docs: https://blog.stocktwits.com/embed-stocktwits-messages-everywhere-99a79a6ddcb9

@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: probed
+source: live GET of /.well-known/* on StockTwits hosts
+hosts:
+- host: https://stocktwits.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://api.stocktwits.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /api/2/.well-known/openid-configuration
+    status: 404
+notes: 'No .well-known discovery documents are published on the website or API host.
+  StockTwits OAuth 2.0 endpoints are documented in the developer docs rather than via
+  RFC 8414 / OIDC discovery. Absence recorded as valid data; no raw files saved.'

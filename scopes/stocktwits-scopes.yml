@@ -1,0 +1,51 @@
+generated: '2026-07-21'
+method: searched
+source: openapi/stocktwits-openapi-original.json
+docs: https://api.stocktwits.com/developers/docs
+notes: 'StockTwits OAuth 2.0 authorization-code scopes. `read` covers public data;
+  publish_messages / publish_watch_lists / follow_users / follow_stocks gate the write
+  operations. `watchlists` appears as an operation-level security requirement in the
+  spec. Some endpoints work unauthenticated with an app-level access_token query param.'
+schemes:
+- name: oauth2
+  source: openapi/stocktwits-openapi-original.json
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://api.stocktwits.com/api/2/oauth/authorize
+    tokenUrl: https://api.stocktwits.com/api/2/oauth/token
+  description: StockTwits uses OAuth 2.0 for authentication. Some endpoints are available without
+    authentication using just an access_token query parameter.
+scopes:
+- scope: follow_stocks
+  description: Follow and unfollow stocks
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stocktwits-openapi-original.json
+- scope: follow_users
+  description: Follow and unfollow users
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stocktwits-openapi-original.json
+- scope: publish_messages
+  description: Create and interact with messages
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stocktwits-openapi-original.json
+- scope: publish_watch_lists
+  description: Create and manage watchlists
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stocktwits-openapi-original.json
+- scope: read
+  description: Read access to public data
+  flows:
+  - authorizationCode
+  sources:
+  - openapi/stocktwits-openapi-original.json
+- scope: watchlists
+  sources:
+  - openapi/stocktwits-openapi-original.json

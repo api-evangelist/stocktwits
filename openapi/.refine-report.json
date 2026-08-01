@@ -1,0 +1,30 @@
+{
+  "provider": "stocktwits",
+  "sources": [
+    "stocktwits-account-api-openapi.yml",
+    "stocktwits-deletions-api-openapi.yml",
+    "stocktwits-friendships-api-openapi.yml",
+    "stocktwits-graph-social-api-openapi.yml",
+    "stocktwits-messages-api-openapi.yml",
+    "stocktwits-search-api-openapi.yml",
+    "stocktwits-streams-api-openapi.yml",
+    "stocktwits-trending-api-openapi.yml",
+    "stocktwits-watchlists-api-openapi.yml"
+  ],
+  "outputs": [
+    "stocktwits-account-api-openapi.yml",
+    "stocktwits-deletions-api-openapi.yml",
+    "stocktwits-friendships-api-openapi.yml",
+    "stocktwits-graph-social-api-openapi.yml",
+    "stocktwits-messages-api-openapi.yml",
+    "stocktwits-search-api-openapi.yml",
+    "stocktwits-streams-api-openapi.yml",
+    "stocktwits-trending-api-openapi.yml",
+    "stocktwits-watchlists-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

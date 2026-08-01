@@ -1,0 +1,22 @@
+generated: '2026-07-21'
+method: searched
+source: https://api.stocktwits.com/developers + openapi/stocktwits-openapi-original.json
+versioning:
+  scheme: uri-path
+  current: v2
+  base: https://api.stocktwits.com/api/2
+  docs: https://api.stocktwits.com/developers/docs
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: 'No formal deprecation/sunset policy is published. As of this pass StockTwits
+    states it is reviewing all APIs, documentation, and terms, and is not accepting
+    new developer registrations; contact developers@stocktwits.com.'
+sla:
+  url: null
+  uptime_target: null
+status_page: null
+registration:
+  status: under-review
+  contact: developers@stocktwits.com
+deprecated_operations: []

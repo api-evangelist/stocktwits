@@ -1,0 +1,16 @@
+generated: '2026-07-21'
+method: generated
+source: openapi/stocktwits-openapi-original.json
+skills:
+- file: stocktwits-read-symbol-sentiment.md
+  name: Read symbol sentiment from StockTwits
+  api: openapi/stocktwits-openapi-original.json
+  operations: [getSymbolStream, searchSymbols, getTrendingSymbols]
+- file: stocktwits-post-and-like.md
+  name: Post and engage on StockTwits
+  api: openapi/stocktwits-openapi-original.json
+  operations: [createMessage, likeMessage, verifyAccount]
+- file: stocktwits-manage-watchlist.md
+  name: Manage a StockTwits watchlist
+  api: openapi/stocktwits-openapi-original.json
+  operations: [getWatchlists, createWatchlist, addSymbolToWatchlist, getWatchlistStream]

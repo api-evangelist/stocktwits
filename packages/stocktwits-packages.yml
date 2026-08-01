@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: searched
+source: npm / GitHub / packagist registry search + https://api.stocktwits.com/developers
+notes: 'StockTwits does not publish an official, first-party client SDK. The libraries
+  below are community-maintained wrappers around the v2 REST API. No `official: true`
+  entries, so no SDKs rating pointer is emitted.'
+packages:
+- language: javascript
+  registry: npm
+  name: stocktwits
+  url: https://www.npmjs.com/package/stocktwits
+  repo: https://github.com/simov/stocktwits
+  install: npm install stocktwits
+  official: false
+- language: javascript
+  registry: github
+  name: stocktwits-api
+  url: https://github.com/janlukasschroeder/stocktwits-api
+  install: npm install stocktwits-api
+  official: false
+- language: csharp
+  registry: github
+  name: BarbezDotEu.StockTwits
+  url: https://github.com/hannesbarbez/BarbezDotEu.StockTwits
+  official: false
+- language: ruby
+  registry: github
+  name: eladmeidar/StockTwits
+  url: https://github.com/eladmeidar/StockTwits
+  official: false

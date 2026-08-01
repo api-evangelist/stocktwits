@@ -1,8 +1,33 @@
 aid: stocktwits
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/stocktwits.png
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1
 name: StockTwits
-description: 'StockTwits is a company surfaced as a portfolio company of foundry-group and added to the
-  API Evangelist network as a stub for enrichment. Sector: fintech. This profile is a lead awaiting the
-  enrichment pipeline.'
+description: 'StockTwits is a social network for investors and traders, letting members
+  share ideas (twits), follow tickers and people, build watchlists, and read real-time
+  streams of market sentiment. The StockTwits API (v2) exposes this Social Finance graph
+  over a REST/JSON interface at api.stocktwits.com/api/2: symbol/user/home/trending
+  message streams, message create and like, symbol and user search, the social graph
+  (followers/following), watchlist management, account verification, and deletion feeds.
+  Authentication is OAuth 2.0 (authorization code) with app-level access tokens for
+  public endpoints. StockTwits also publishes embeddable widgets, buttons, and message
+  embeds for adding a Social Finance layer to any site. Sector: fintech; backed by
+  Foundry Group.'
 url: https://raw.githubusercontent.com/api-evangelist/stocktwits/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -12,16 +37,191 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
 tags:
 - Company
 - Fintech
-apis: []
+- Social
+- Stocks
+- Trading
+- Investing
+- Market Data
+- Social Finance
+- Watchlists
+- Messaging
+apis:
+- aid: stocktwits:stocktwits-account-api
+  name: StockTwits Account API
+  description: Account management endpoints for verifying and updating user profiles.
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-account-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
+- aid: stocktwits:stocktwits-deletions-api
+  name: StockTwits Deletions API
+  description: Deletion tracking endpoints for finding messages and users that have been removed.
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Deletions
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-deletions-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
+- aid: stocktwits:stocktwits-friendships-api
+  name: StockTwits Friendships API
+  description: Friendship management endpoints for following and unfollowing users.
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Friendships
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-friendships-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
+- aid: stocktwits:stocktwits-graph-social-api
+  name: StockTwits Graph (Social) API
+  description: Social graph endpoints for viewing followers and following lists.
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Graph (Social)
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-graph-social-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
+- aid: stocktwits:stocktwits-messages-api
+  name: StockTwits Messages API
+  description: >-
+    Message endpoints for creating, viewing, liking, and managing individual messages (twits).
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Messages
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-messages-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
+- aid: stocktwits:stocktwits-search-api
+  name: StockTwits Search API
+  description: Search endpoints for finding symbols and users on StockTwits.
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-search-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
+- aid: stocktwits:stocktwits-streams-api
+  name: StockTwits Streams API
+  description: >-
+    Stream endpoints return collections of messages (twits). Streams can be filtered by symbol, user,
+    trending, etc.
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Streams
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-streams-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
+- aid: stocktwits:stocktwits-trending-api
+  name: StockTwits Trending API
+  description: Trending endpoints return currently popular symbols based on message volume.
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Trending
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-trending-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
+- aid: stocktwits:stocktwits-watchlists-api
+  name: StockTwits Watchlists API
+  description: Watchlist management endpoints for creating and managing symbol watchlists.
+  humanURL: https://api.stocktwits.com/developers
+  baseURL: https://api.stocktwits.com/api/2
+  tags:
+  - Watchlists
+  properties:
+  - type: OpenAPI
+    url: openapi/stocktwits-watchlists-api-openapi.yml
+  - type: Documentation
+    url: https://api.stocktwits.com/developers/docs
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: OpenAPI
+  url: openapi/stocktwits-openapi-original.json
+- type: AgenticAccess
+  url: agentic-access/stocktwits-agentic-access.yml
+- type: Packages
+  url: packages/stocktwits-packages.yml
+- type: WellKnown
+  url: well-known/stocktwits-well-known.yml
+- type: MCPServer
+  url: mcp/stocktwits-mcp.yml
+- type: LLMsTxt
+  url: llms/stocktwits-llms.txt
+- type: Overlay
+  url: overlays/stocktwits-openapi-overlay.yaml
+- type: Conformance
+  url: conformance/stocktwits-conformance.yml
+- type: ErrorCatalog
+  url: errors/stocktwits-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/stocktwits-lifecycle.yml
+- type: Conventions
+  url: conventions/stocktwits-conventions.yml
+- type: DataModel
+  url: data-model/stocktwits-data-model.yml
+- type: Components
+  url: components/stocktwits-components.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/stocktwits-domain-security.yml
+- type: OAuthScopes
+  url: scopes/stocktwits-scopes.yml
+- type: Authentication
+  url: authentication/stocktwits-authentication.yml
 - type: Website
   url: https://stocktwits.com
+- type: DeveloperPortal
+  url: https://api.stocktwits.com/developers
+- type: Documentation
+  url: https://api.stocktwits.com/developers/docs
+- type: APIReference
+  url: https://api.stocktwits.com/developers/docs/api
+- type: GettingStarted
+  url: https://api.stocktwits.com/developers
+- type: Support
+  url: https://help.stocktwits.com/
+- type: HelpCenter
+  url: https://help.stocktwits.com/
+- type: Blog
+  url: https://blog.stocktwits.com/
+- type: GitHubOrganization
+  url: https://github.com/stocktwits
+- type: SignUp
+  url: https://stocktwits.com/signup
+- type: TermsOfService
+  url: https://stocktwits.com/about/legal/terms/
+- type: PrivacyPolicy
+  url: https://stocktwits.com/about/legal/privacy

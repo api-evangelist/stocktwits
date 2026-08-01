@@ -1,0 +1,36 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/stocktwits-openapi-original.json + https://api.stocktwits.com/developers/docs
+authentication:
+  styles:
+  - oauth2 (authorization code) — user-level access_token
+  - apiKey — app-level access_token as query parameter
+  token_param: access_token
+  see: authentication/stocktwits-authentication.yml
+pagination:
+  style: cursor (id-based)
+  params:
+  - since   # results with an ID greater than the specified ID
+  - max     # results with an ID less than or equal to the specified ID
+  - limit   # number of results (default 30, max 30)
+  applies_to: stream operations
+filtering:
+  param: filter
+  values: [links, charts, videos]
+idempotency:
+  supported: false
+  notes: No Idempotency-Key header or idempotent-write contract is documented; POST
+    creates (messages, watchlists, likes, follows) are not declared idempotent.
+versioning:
+  style: uri-path
+  current: v2
+  see: lifecycle/stocktwits-lifecycle.yml
+error_envelope:
+  shape: '{ "response": { "status": <int> }, "errors": [ { "message": "<string>" } ] }'
+  see: errors/stocktwits-problem-types.yml
+rate_limiting:
+  signal: HTTP 429 (Rate limit exceeded)
+  headers: not documented
+response_envelope:
+  shape: 'Most collection responses wrap a `response` status object plus resource arrays
+    (e.g. messages[], symbols[], users[]).'

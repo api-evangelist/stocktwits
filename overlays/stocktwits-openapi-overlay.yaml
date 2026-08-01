@@ -1,0 +1,23 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for StockTwits API v2
+  version: 1.0.0
+extends: openapi/stocktwits-openapi-original.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-enriched: '2026-07-21'
+    x-apievangelist-provider: stocktwits
+    x-apievangelist-artifacts:
+    - authentication/stocktwits-authentication.yml
+    - scopes/stocktwits-scopes.yml
+    - conventions/stocktwits-conventions.yml
+    - errors/stocktwits-problem-types.yml
+    - data-model/stocktwits-data-model.yml
+    - agentic-access/stocktwits-agentic-access.yml
+- target: $.info
+  update:
+    x-apievangelist-notes: 'Social Finance graph API. OAuth 2.0 (authorization code)
+      + app-level access_token. Cursor pagination via since/max/limit. Custom error
+      envelope (response.status + errors[].message). Developer registration under
+      review as of enrichment.'

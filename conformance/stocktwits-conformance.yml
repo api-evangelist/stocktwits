@@ -1,0 +1,32 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/stocktwits-openapi-original.json
+standards:
+- id: oauth2
+  conforms: true
+  evidence: securitySchemes declares oauth2 authorizationCode flow with authorize/token URLs and scopes
+- id: oauth2-authorization-code
+  conforms: true
+  evidence: authorizationUrl https://api.stocktwits.com/api/2/oauth/authorize + tokenUrl .../oauth/token
+- id: oidc
+  conforms: false
+  evidence: no openid-configuration discovery document; OAuth only, no OIDC id_token
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: error responses use a custom envelope (response.status + errors[].message), not application/problem+json
+- id: cursor-pagination
+  conforms: true
+  evidence: stream operations expose since/max (id-based cursor) plus limit
+- id: rest-json
+  conforms: true
+  evidence: resource-oriented JSON over HTTPS, .json suffixed paths
+- id: rate-limiting
+  conforms: true
+  evidence: operations document a 429 Rate limit exceeded response
+- id: idempotency
+  conforms: false
+  evidence: no Idempotency-Key header or idempotent write contract documented
+- id: fhir-r4
+  conforms: false
+- id: fapi
+  conforms: false

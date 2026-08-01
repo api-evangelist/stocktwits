@@ -1,0 +1,30 @@
+generated: '2026-07-21'
+method: derived
+source: openapi/stocktwits-openapi-original.json
+entities:
+- name: Message
+  key: id
+  fields: [id, body, created_at, user, source, symbols, entities, conversation, likes, reshares]
+  relationships:
+  - {kind: belongs_to, target: User, via: user}
+  - {kind: has_many, target: Symbol, via: symbols}
+- name: User
+  key: id
+  fields: [id, username, name, avatar_url, join_date, official, followers, following, ideas, watchlist_stocks_count, like_count, classification]
+  relationships:
+  - {kind: has_many, target: User, via: followers}
+  - {kind: has_many, target: User, via: following}
+- name: Symbol
+  key: id
+  fields: [id, symbol, title, aliases, is_following, has_pricing, watchlist_count]
+  relationships: []
+- name: Watchlist
+  key: id
+  fields: [id, name, static, updated_at, created_at, symbols]
+  relationships:
+  - {kind: has_many, target: Symbol, via: symbols}
+- name: StreamResponse
+  key: null
+  fields: [response, symbol, cursor, messages]
+  relationships:
+  - {kind: has_many, target: Message, via: messages}
