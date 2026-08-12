@@ -168,7 +168,7 @@ maintainers:
   email: info@apis.io
 common:
 - type: OpenAPI
-  url: openapi/stocktwits-openapi-original.json
+  url: openapi/_original/stocktwits-openapi-original.json
 - type: AgenticAccess
   url: agentic-access/stocktwits-agentic-access.yml
 - type: Packages
