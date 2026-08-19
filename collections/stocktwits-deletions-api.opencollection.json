@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account Deletions API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Deletions",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Deleted Messages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/deletions/messages.json",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns deleted message IDs greater than this ID"
+              }
+            ]
+          },
+          "docs": "Returns a list of message IDs that have been deleted since the specified ID."
+        },
+        {
+          "info": {
+            "name": "Deleted Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/deletions/users.json",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns deleted user IDs greater than this ID"
+              }
+            ]
+          },
+          "docs": "Returns a list of user IDs that have been deleted since the specified ID."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

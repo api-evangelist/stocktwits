@@ -1,0 +1,285 @@
+{
+  "item": [
+    {
+      "id": "c9fee871-de3a-4035-a71d-bed283dbf548",
+      "name": "Search",
+      "description": {
+        "content": "Search endpoints for finding symbols and users on StockTwits.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8b03faf8-e635-4e94-a57a-671e097f93df",
+          "name": "Search",
+          "request": {
+            "name": "Search",
+            "description": {
+              "content": "Search for symbols and users on StockTwits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) The search query (prefix match for symbols and usernames)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "992a309e-797d-45e9-9556-2d0ce06c2d66",
+              "name": "Successful search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 8854\n  },\n  \"results\": [\n    {\n      \"id\": 3098,\n      \"type\": \"symbol\",\n      \"symbol\": \"string\",\n      \"title\": \"string\",\n      \"username\": \"string\"\n    },\n    {\n      \"id\": 8115,\n      \"type\": \"user\",\n      \"symbol\": \"string\",\n      \"title\": \"string\",\n      \"username\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b095cccd-1bac-452c-b7c3-d0167e3249c6",
+          "name": "Search Symbols",
+          "request": {
+            "name": "Search Symbols",
+            "description": {
+              "content": "Search for symbols on StockTwits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "symbols.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) The search query for symbol lookup"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "91631e20-2788-4ba4-9637-8c83e5a0594a",
+              "name": "Successful search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "symbols.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 8778\n  },\n  \"results\": [\n    {\n      \"id\": 6776,\n      \"symbol\": \"string\",\n      \"title\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_following\": true,\n      \"has_pricing\": true,\n      \"watchlist_count\": 3367\n    },\n    {\n      \"id\": 1125,\n      \"symbol\": \"string\",\n      \"title\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_following\": true,\n      \"has_pricing\": false,\n      \"watchlist_count\": 1538\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e8f75825-43c1-49a5-be71-820ae7dd09fe",
+          "name": "Search Users",
+          "request": {
+            "name": "Search Users",
+            "description": {
+              "content": "Search for users on StockTwits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "search",
+                "users.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "q",
+                  "value": "<string>",
+                  "description": "(Required) The search query for user lookup"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "914d0ce2-8a44-41d0-a903-f61bf0ea09dc",
+              "name": "Successful search results",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "search",
+                    "users.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "q",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 9995\n  },\n  \"results\": [\n    {\n      \"id\": 1622,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"http://FtSTrJkJIfKvYLVlopfWYn.vsbY+yX55kNfzEeG6v3G3to-gs,YmgOeqYxsn2OdH\",\n      \"avatar_url_ssl\": \"http://zGEDJpBazIfOhZ.gsRMME\",\n      \"join_date\": \"1976-08-31T07:15:19.022Z\",\n      \"official\": false,\n      \"followers\": 9149,\n      \"following\": 8601,\n      \"ideas\": 6637,\n      \"watchlist_stocks_count\": 793,\n      \"like_count\": 7942,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 1797,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"https://BZAEhduCtwQdIpsbAgYrPB.qcD,NXn0k+G4\",\n      \"avatar_url_ssl\": \"https://FdpJyDIsbIWEbOLCbFZenYWUZldcuhm.rputF0MAiV+3yNPNN3Dl-pOMLeR,m,X.jXIERejYYPKMQOhlDhnpUEhT,T0\",\n      \"join_date\": \"1986-04-04T03:05:19.068Z\",\n      \"official\": false,\n      \"followers\": 2395,\n      \"following\": 2184,\n      \"ideas\": 9893,\n      \"watchlist_stocks_count\": 3083,\n      \"like_count\": 4578,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "a0edd900-503e-4fe4-b491-5d07c478a7da",
+    "name": "StockTwits Account Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

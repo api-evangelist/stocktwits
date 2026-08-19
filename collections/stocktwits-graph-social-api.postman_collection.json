@@ -1,0 +1,219 @@
+{
+  "item": [
+    {
+      "id": "4e456c8d-161a-4eee-871d-4863a8f9eb5e",
+      "name": "Graph (Social)",
+      "description": {
+        "content": "Social graph endpoints for viewing followers and following lists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "46b71512-aad8-440e-a55f-708b2226feba",
+          "name": "User Following",
+          "request": {
+            "name": "User Following",
+            "description": {
+              "content": "Returns the list of users the specified user is following.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graph",
+                "user",
+                ":user_id",
+                "following.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) User ID or username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "77c8f968-3d96-4485-a532-2758ff0bd94a",
+              "name": "Successful response with list of followed users",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graph",
+                    "user",
+                    ":user_id",
+                    "following.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User ID or username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 798\n  },\n  \"users\": [\n    {\n      \"id\": 2536,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"http://nNZDGmqWJlEOfDX.roDSzbcSCrfzzm6RAHiJh0T\",\n      \"avatar_url_ssl\": \"http://DTPmGLYLFBlXMd.vswwkXvE-Djuu+0cvGsGrWpy5xhwnk,q0Lx2rYcA1DrhZ0q8.5,sjCGrl4\",\n      \"join_date\": \"2000-03-16T21:08:37.219Z\",\n      \"official\": false,\n      \"followers\": 7934,\n      \"following\": 5421,\n      \"ideas\": 7206,\n      \"watchlist_stocks_count\": 3863,\n      \"like_count\": 1189,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 7025,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"https://yYyvE.gduG,kmkdujifRpOqJpUB-gZPsWjj3N.N-FFe8GHsoce1\",\n      \"avatar_url_ssl\": \"http://tmuegsDwDngvHCQOWeQxcTGBtlAV.dctowlsxujPjFnJw1gtihU-jAhtwTVxplepEMCm9X8kX8M,c+d7J7KF9Ws4fw\",\n      \"join_date\": \"1949-07-09T03:35:09.359Z\",\n      \"official\": true,\n      \"followers\": 8581,\n      \"following\": 4985,\n      \"ideas\": 3945,\n      \"watchlist_stocks_count\": 7124,\n      \"like_count\": 7881,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "042731ca-5d17-49c0-8cbf-a3da6a62b779",
+          "name": "User Followers",
+          "request": {
+            "name": "User Followers",
+            "description": {
+              "content": "Returns the list of users following the specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "graph",
+                "user",
+                ":user_id",
+                "followers.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "user_id",
+                  "description": "(Required) User ID or username"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c08f1b44-4313-42e5-9603-e1450f54859f",
+              "name": "Successful response with list of followers",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "graph",
+                    "user",
+                    ":user_id",
+                    "followers.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "user_id",
+                      "description": "(Required) User ID or username"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 7178\n  },\n  \"users\": [\n    {\n      \"id\": 3551,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"https://YwYwhRpqpyDiPWqrSUyeym.cxcHvxvVyHeMRaQUA\",\n      \"avatar_url_ssl\": \"http://DLOKupwocJLOTnCCuw.cdr0BKnGPUqqqEcr1V35Hcf66FLEQOzFbEM54v\",\n      \"join_date\": \"1963-06-09T04:37:10.601Z\",\n      \"official\": false,\n      \"followers\": 5259,\n      \"following\": 5881,\n      \"ideas\": 346,\n      \"watchlist_stocks_count\": 5945,\n      \"like_count\": 4588,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 4212,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"http://nEoaPhwa.qwekelpJWdt,vVR9vdSsBC29isPKSTKP-thhCzRSJ\",\n      \"avatar_url_ssl\": \"https://vVvGtCOYUiJ.nfDfmioT6cywnJYI1,qXCjEl.QSWexldVzxvcLDuunKUAA4mTKnBIxC7FeoOhgCxZBc\",\n      \"join_date\": \"1998-08-14T16:49:10.573Z\",\n      \"official\": false,\n      \"followers\": 6609,\n      \"following\": 9676,\n      \"ideas\": 1176,\n      \"watchlist_stocks_count\": 6791,\n      \"like_count\": 1171,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "e4aa291c-93da-4a56-9aab-7ba3ac7f639c",
+    "name": "StockTwits Account Graph (Social) API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account Watchlists API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Watchlists",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Watchlists",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/watchlists.json",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns all watchlists for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Create Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/watchlists/create.json",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "name",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new watchlist for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Update Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/watchlists/update/:watchlist_id.json",
+            "params": [
+              {
+                "name": "watchlist_id",
+                "value": "",
+                "type": "path",
+                "description": "The watchlist ID"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "name",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Updates the name of an existing watchlist."
+        },
+        {
+          "info": {
+            "name": "Delete Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/watchlists/destroy/:watchlist_id.json",
+            "params": [
+              {
+                "name": "watchlist_id",
+                "value": "",
+                "type": "path",
+                "description": "The watchlist ID to delete"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Deletes an existing watchlist."
+        },
+        {
+          "info": {
+            "name": "Add Symbol to Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/watchlists/:watchlist_id/symbols/create.json",
+            "params": [
+              {
+                "name": "watchlist_id",
+                "value": "",
+                "type": "path",
+                "description": "The watchlist ID"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "symbols",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Adds symbols to an existing watchlist."
+        },
+        {
+          "info": {
+            "name": "Remove Symbol from Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/watchlists/:watchlist_id/symbols/destroy.json",
+            "params": [
+              {
+                "name": "watchlist_id",
+                "value": "",
+                "type": "path",
+                "description": "The watchlist ID"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "symbols",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Removes symbols from an existing watchlist."
+        },
+        {
+          "info": {
+            "name": "Show Watchlist",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/watchlists/show/:watchlist_id.json",
+            "params": [
+              {
+                "name": "watchlist_id",
+                "value": "",
+                "type": "path",
+                "description": "The watchlist ID"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns the specified watchlist with its symbols."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

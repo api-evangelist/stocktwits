@@ -1,0 +1,322 @@
+{
+  "item": [
+    {
+      "id": "cb769b3d-9843-4a97-b147-b16b50af720d",
+      "name": "Account",
+      "description": {
+        "content": "Account management endpoints for verifying and updating user profiles.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "27a5eb84-a635-4062-b7af-e2e8e7367434",
+          "name": "Verify Account",
+          "request": {
+            "name": "Verify Account",
+            "description": {
+              "content": "Verifies the authenticated user's credentials and returns their profile information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "verify.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "7c92ffd4-5433-4726-9f63-1eac4653963f",
+              "name": "Successful verification with user profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "verify.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 1689\n  },\n  \"user\": {\n    \"id\": 9100,\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"avatar_url\": \"http://GPZUqSFiNAyjBMFrURy.vfZhU,BVjYChizMYF+QRrANa76NO5JQVsIlZ09ChnPJpdkp8G02yilIpS1hawd0GnJv,\",\n    \"avatar_url_ssl\": \"http://BCflr.kuiCdpLelSgBfvTweyX8YZ4v5Srqru2uWuMGSBNP9+4\",\n    \"join_date\": \"2007-01-29T23:51:53.360Z\",\n    \"official\": false,\n    \"followers\": 4478,\n    \"following\": 4272,\n    \"ideas\": 4256,\n    \"watchlist_stocks_count\": 2325,\n    \"like_count\": 5378,\n    \"classification\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "27e26b0e-65bd-450b-b2e6-8cdb7992289e",
+              "name": "Invalid or expired access token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "verify.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6192\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "95cb1a32-2fed-46d5-84d7-a6d9123f3f75",
+          "name": "Update Account",
+          "request": {
+            "name": "Update Account",
+            "description": {
+              "content": "Updates the authenticated user's profile information.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "account",
+                "update.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "The user's display name"
+                },
+                {
+                  "disabled": false,
+                  "key": "email",
+                  "value": "<email>",
+                  "description": "The user's email address"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8ba75c41-42e7-4d30-8bc8-896b353a8cc3",
+              "name": "Account updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "account",
+                    "update.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The user's display name",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The user's email address",
+                        "type": "text/plain"
+                      },
+                      "key": "email",
+                      "value": "<email>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 2685\n  },\n  \"user\": {\n    \"id\": 5433,\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"avatar_url\": \"https://nMxhOXlhg.sqDkV9PlwIalE4eU.\",\n    \"avatar_url_ssl\": \"http://nKCMwUUZTTNLOHdosmthPcVDhUETfEjx.qmaueVEWRB3ta4Apr8L3fq2su7X\",\n    \"join_date\": \"1951-01-03T21:43:52.194Z\",\n    \"official\": true,\n    \"followers\": 7531,\n    \"following\": 4603,\n    \"ideas\": 3368,\n    \"watchlist_stocks_count\": 5650,\n    \"like_count\": 7303,\n    \"classification\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "c5999042-46f7-4153-938f-58f0096ac086",
+    "name": "StockTwits Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

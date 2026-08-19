@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account Trending API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Trending",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Trending Symbols",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/trending/symbols.json",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of trending symbols to return (default 30, max 30)"
+              }
+            ]
+          },
+          "docs": "Returns the list of trending symbols on StockTwits, based on message volume."
+        },
+        {
+          "info": {
+            "name": "Trending Equities",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/trending/symbols/equities.json",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of trending symbols to return (default 30, max 30)"
+              }
+            ]
+          },
+          "docs": "Returns the list of trending equity symbols on StockTwits."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

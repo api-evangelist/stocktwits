@@ -2,10 +2,9 @@ generated: '2026-07-21'
 method: derived
 status: candidate
 source: openapi/stocktwits-openapi-original.json
-notes: 'No official or community hosted MCP server was found for StockTwits. The tools
-  below are a candidate surface derived one-per-operation from the v2 OpenAPI, provided
-  as a starting point for an agent-native integration. Not an authoritative provider
-  claim.'
+notes: No official or community hosted MCP server was found for StockTwits. The tools below are a candidate
+  surface derived one-per-operation from the v2 OpenAPI, provided as a starting point for an agent-native
+  integration. Not an authoritative provider claim.
 server:
   name: stocktwits
   transport: http
@@ -58,3 +57,9 @@ tools:
 - name: verify_account
   description: Verify the authenticated account
   source_operation: openapi/stocktwits-openapi-original.json#verifyAccount
+deployment:
+  mode: none
+  verified: derived
+  tools: 16
+  checked: '2026-08-12'
+  source: catalog MCP census

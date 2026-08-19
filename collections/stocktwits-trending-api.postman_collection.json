@@ -1,0 +1,205 @@
+{
+  "item": [
+    {
+      "id": "19d317a7-5260-48b4-a739-e47a61c37063",
+      "name": "Trending",
+      "description": {
+        "content": "Trending endpoints return currently popular symbols based on message volume.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e4457677-5c8a-4f12-a44d-866919b45ec5",
+          "name": "Trending Symbols",
+          "request": {
+            "name": "Trending Symbols",
+            "description": {
+              "content": "Returns the list of trending symbols on StockTwits, based on message volume.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "trending",
+                "symbols.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of trending symbols to return (default 30, max 30)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9ab7b6a0-4fd4-4473-ae9c-b6b0cfbfd0ec",
+              "name": "Successful response with trending symbols",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trending",
+                    "symbols.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 366\n  },\n  \"symbols\": [\n    {\n      \"id\": 1869,\n      \"symbol\": \"string\",\n      \"title\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_following\": true,\n      \"has_pricing\": true,\n      \"watchlist_count\": 9418\n    },\n    {\n      \"id\": 604,\n      \"symbol\": \"string\",\n      \"title\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_following\": true,\n      \"has_pricing\": true,\n      \"watchlist_count\": 5432\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f74f60ed-f33d-41b0-8936-8f784826a2c7",
+          "name": "Trending Equities",
+          "request": {
+            "name": "Trending Equities",
+            "description": {
+              "content": "Returns the list of trending equity symbols on StockTwits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "trending",
+                "symbols",
+                "equities.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of trending symbols to return (default 30, max 30)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e18b2a07-d74c-44d5-8d89-32b17443087c",
+              "name": "Successful response with trending equity symbols",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "trending",
+                    "symbols",
+                    "equities.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 2672\n  },\n  \"symbols\": [\n    {\n      \"id\": 3625,\n      \"symbol\": \"string\",\n      \"title\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_following\": true,\n      \"has_pricing\": true,\n      \"watchlist_count\": 9470\n    },\n    {\n      \"id\": 5837,\n      \"symbol\": \"string\",\n      \"title\": \"string\",\n      \"aliases\": [\n        \"string\",\n        \"string\"\n      ],\n      \"is_following\": false,\n      \"has_pricing\": true,\n      \"watchlist_count\": 5979\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "1a910fe5-df89-4f4f-ab03-e20c11421476",
+    "name": "StockTwits Account Trending API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

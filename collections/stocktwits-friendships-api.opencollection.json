@@ -1,0 +1,76 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account Friendships API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Friendships",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Follow User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/friendships/create/:user_id.json",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "User ID or username to follow"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Follow a user on StockTwits."
+        },
+        {
+          "info": {
+            "name": "Unfollow User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/friendships/destroy/:user_id.json",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "User ID or username to unfollow"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Unfollow a user on StockTwits."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

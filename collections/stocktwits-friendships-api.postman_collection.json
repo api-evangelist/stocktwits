@@ -1,0 +1,294 @@
+{
+  "item": [
+    {
+      "id": "69016c58-a29d-48ca-88f2-a97ac4a958b9",
+      "name": "Friendships",
+      "description": {
+        "content": "Friendship management endpoints for following and unfollowing users.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "121ca200-03ba-414e-b18e-4c03af577c5b",
+          "name": "Follow User",
+          "request": {
+            "name": "Follow User",
+            "description": {
+              "content": "Follow a user on StockTwits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "friendships",
+                "create",
+                "{{user_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "79b46e52-2f98-4b45-b6ec-b308af1009d1",
+              "name": "Successfully followed user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "friendships",
+                    "create",
+                    "{{user_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 8860\n  },\n  \"user\": {\n    \"id\": 4502,\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"avatar_url\": \"http://XB.stfSOVxkGB59K1UK7ZoE79wxv8jNZ,EdmHEMCn5nQ4k7UADnUhGN\",\n    \"avatar_url_ssl\": \"https://DfVLwNEARLsVDyHsywzTyjaznvfKSzjx.cssrhsUeDRYYH1p6A1pEYPLjV9TbxR+wKRWB7HPjVHlf\",\n    \"join_date\": \"1994-11-28T15:58:04.726Z\",\n    \"official\": true,\n    \"followers\": 8618,\n    \"following\": 4567,\n    \"ideas\": 6025,\n    \"watchlist_stocks_count\": 2411,\n    \"like_count\": 5199,\n    \"classification\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72ade780-13bb-42a8-850e-18a35f5249e6",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "friendships",
+                    "create",
+                    "{{user_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6861\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "89e8e3d2-4aaa-4d86-ba9a-ff456693d7af",
+          "name": "Unfollow User",
+          "request": {
+            "name": "Unfollow User",
+            "description": {
+              "content": "Unfollow a user on StockTwits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "friendships",
+                "destroy",
+                "{{user_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "86c0387c-1f00-46f0-a3ee-93d3eeef3745",
+              "name": "Successfully unfollowed user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "friendships",
+                    "destroy",
+                    "{{user_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 3669\n  },\n  \"user\": {\n    \"id\": 80,\n    \"username\": \"string\",\n    \"name\": \"string\",\n    \"avatar_url\": \"http://RhEDzLgPwDxLFqTTGHUpLdKJerAzZA.wjXNa2Dqggln\",\n    \"avatar_url_ssl\": \"https://GBWMWJRzHKEezlkXwbsEwvDanj.teTTLiNKQRs4YJ2-kluf9\",\n    \"join_date\": \"2007-10-15T08:38:39.036Z\",\n    \"official\": false,\n    \"followers\": 302,\n    \"following\": 4450,\n    \"ideas\": 3959,\n    \"watchlist_stocks_count\": 3649,\n    \"like_count\": 9393,\n    \"classification\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) User ID or username to follow",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "user_id"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "4c59daf2-bb3e-498a-a713-30269d929a6b",
+    "name": "StockTwits Account Friendships API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,810 @@
+{
+  "item": [
+    {
+      "id": "51e27e7f-ddff-46ac-8671-f50fee4d2660",
+      "name": "Messages",
+      "description": {
+        "content": "Message endpoints for creating, viewing, liking, and managing individual messages (twits).",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "874411ca-a0bf-4035-9571-59d82efca269",
+          "name": "Show Message",
+          "request": {
+            "name": "Show Message",
+            "description": {
+              "content": "Returns the specified message by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                "show",
+                "{{message_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "aed4cfb0-5dbd-4653-8d94-752ab40f03e7",
+              "name": "Successful response with the message",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "show",
+                    "{{message_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 9449\n  },\n  \"message\": {\n    \"id\": 446,\n    \"body\": \"string\",\n    \"created_at\": \"1998-02-09T16:01:48.119Z\",\n    \"user\": {\n      \"id\": 448,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"https://HqqxKETXxLNkbA.hakr6z+fQ,ZxDsO9AZF8,YZO28ID73cYPdrrxeN4kS9HCQlX5eEL7TO.sj\",\n      \"avatar_url_ssl\": \"http://Jj.qkpcU6VrGmiLvums0ccJeAs+da9EhRIliCW5FUnidYmGoZVC,KxxgL+3Nbnm6p\",\n      \"join_date\": \"2015-01-30T17:30:25.375Z\",\n      \"official\": false,\n      \"followers\": 8220,\n      \"following\": 582,\n      \"ideas\": 4009,\n      \"watchlist_stocks_count\": 8557,\n      \"like_count\": 4978,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"source\": {\n      \"id\": 1744,\n      \"title\": \"string\",\n      \"url\": \"https://IC.xlcfpTRq2GYGTE8x2dfJOzv7C,DSs7rPjCXyI5awU4dkB4KmxFkM6Pxu2\"\n    },\n    \"symbols\": [\n      {\n        \"id\": 3729,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": false,\n        \"watchlist_count\": 3077\n      },\n      {\n        \"id\": 9503,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": false,\n        \"watchlist_count\": 3671\n      }\n    ],\n    \"entities\": {\n      \"sentiment\": {\n        \"basic\": \"Bullish\"\n      },\n      \"chart\": {\n        \"thumb\": \"https://stbTceSHMQVCUESbCgaGv.kmZjyJ7Ir-AHmFvebqLEX1.qo8MfhPU5..IvluqmU+L5nPM\",\n        \"large\": \"https://UDlHYbVzuDgiouVWosVUUthdQLpCL.amR\",\n        \"original\": \"https://eZJRVaNwPdeGhrYuscxbp.wxHBlV4M7m5MKv,mxeg8+KHfrxMhoal29,aGWDeebkuZ69N0SrEhrpIk,jNKy7B-vC\",\n        \"url\": \"https://EQFzShG.buz,f+BLPaJEJxeVPVFKGDxNtOiufuu,MfT+sOnKxM1GlhYkQE\"\n      }\n    },\n    \"conversation\": {\n      \"parent_message_id\": 6309,\n      \"in_reply_to_message_id\": 5475,\n      \"parent\": false,\n      \"replies\": 840\n    },\n    \"likes\": {\n      \"total\": 5555,\n      \"user_ids\": [\n        6021,\n        1408\n      ]\n    },\n    \"reshares\": {\n      \"reshared_count\": 6768,\n      \"user_ids\": [\n        6328,\n        8927\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c44427cb-3002-48a4-bc61-e65a71ba4f63",
+              "name": "Message not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "show",
+                    "{{message_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 7630\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "46dac13f-aa3a-4989-9b45-6d6040f59ecd",
+          "name": "Create Message",
+          "request": {
+            "name": "Create Message",
+            "description": {
+              "content": "Creates a new message (twit) for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                "create.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "body",
+                  "value": "<string>",
+                  "description": "(Required) The body of the message. Must include a $TICKER symbol (e.g. $AAPL). Max 1000 characters."
+                },
+                {
+                  "disabled": false,
+                  "key": "in_reply_to_message_id",
+                  "value": "<integer>",
+                  "description": "The ID of the message being replied to"
+                },
+                {
+                  "disabled": false,
+                  "key": "sentiment",
+                  "value": "<string>",
+                  "description": "The sentiment of the message"
+                },
+                {
+                  "disabled": false,
+                  "key": "chart",
+                  "value": "<binary>",
+                  "description": "A chart image to attach to the message"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a9f528d0-f9b9-41fb-a6b3-7963b5bc2d60",
+              "name": "Message created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "create.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The body of the message. Must include a $TICKER symbol (e.g. $AAPL). Max 1000 characters.",
+                        "type": "text/plain"
+                      },
+                      "key": "body",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The ID of the message being replied to",
+                        "type": "text/plain"
+                      },
+                      "key": "in_reply_to_message_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The sentiment of the message",
+                        "type": "text/plain"
+                      },
+                      "key": "sentiment",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A chart image to attach to the message",
+                        "type": "text/plain"
+                      },
+                      "key": "chart",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 505\n  },\n  \"message\": {\n    \"id\": 9752,\n    \"body\": \"string\",\n    \"created_at\": \"1993-08-31T16:00:49.481Z\",\n    \"user\": {\n      \"id\": 3043,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"https://NK.wqlCnzDhmMXRUkGUB-7KbfBbn7OzcHS7MoEhFJNQi\",\n      \"avatar_url_ssl\": \"http://ULHuSqbCITCyvHfU.gomnylqyH.4t,GQlr,SeChyD1npacFN,JITUq3IABerpQfxKoxEr+vUWwp\",\n      \"join_date\": \"1962-01-03T10:05:21.996Z\",\n      \"official\": true,\n      \"followers\": 4570,\n      \"following\": 2311,\n      \"ideas\": 599,\n      \"watchlist_stocks_count\": 7019,\n      \"like_count\": 3827,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"source\": {\n      \"id\": 1676,\n      \"title\": \"string\",\n      \"url\": \"http://OPwmOhjiceIVXSsFJQHyuvw.eprIjsyDmzHQwXJ9MBy3Pic1fB9rCGszOM5GaaS\"\n    },\n    \"symbols\": [\n      {\n        \"id\": 338,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": false,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6232\n      },\n      {\n        \"id\": 7786,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 7377\n      }\n    ],\n    \"entities\": {\n      \"sentiment\": {\n        \"basic\": \"Bearish\"\n      },\n      \"chart\": {\n        \"thumb\": \"https://PHBCeWMhjQjrsNNtHBdMkotyCYG.diYCTkGYmWSX,kMoz\",\n        \"large\": \"http://dGlkCAAUdHZPwcyiG.lcPan6qbFmcUc9DkT46OqEPeENE5guFIMxXjDf.xX+..iepfMUFU\",\n        \"original\": \"http://DTnIn.uuctFm7vX7In6od5\",\n        \"url\": \"http://agFyMOKhtKMKGkOATaIWVdjwBWqIEomrm.gyjraSaHsnpCDjBr4FP2kDBi+T\"\n      }\n    },\n    \"conversation\": {\n      \"parent_message_id\": 983,\n      \"in_reply_to_message_id\": 8319,\n      \"parent\": false,\n      \"replies\": 68\n    },\n    \"likes\": {\n      \"total\": 2042,\n      \"user_ids\": [\n        2254,\n        3777\n      ]\n    },\n    \"reshares\": {\n      \"reshared_count\": 3396,\n      \"user_ids\": [\n        6688,\n        4830\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d7f7729f-53f9-4f56-804d-b584952fefb9",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "create.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The body of the message. Must include a $TICKER symbol (e.g. $AAPL). Max 1000 characters.",
+                        "type": "text/plain"
+                      },
+                      "key": "body",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The ID of the message being replied to",
+                        "type": "text/plain"
+                      },
+                      "key": "in_reply_to_message_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The sentiment of the message",
+                        "type": "text/plain"
+                      },
+                      "key": "sentiment",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A chart image to attach to the message",
+                        "type": "text/plain"
+                      },
+                      "key": "chart",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 1036\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9cf5735e-d86f-4b20-b121-0d0ed564ba39",
+              "name": "Validation error (e.g. missing ticker symbol)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "create.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The body of the message. Must include a $TICKER symbol (e.g. $AAPL). Max 1000 characters.",
+                        "type": "text/plain"
+                      },
+                      "key": "body",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The ID of the message being replied to",
+                        "type": "text/plain"
+                      },
+                      "key": "in_reply_to_message_id",
+                      "value": "<integer>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "The sentiment of the message",
+                        "type": "text/plain"
+                      },
+                      "key": "sentiment",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "A chart image to attach to the message",
+                        "type": "text/plain"
+                      },
+                      "key": "chart",
+                      "value": "<binary>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 1036\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e14b0c3-749d-45ae-9fed-031e17f5c51c",
+          "name": "Like Message",
+          "request": {
+            "name": "Like Message",
+            "description": {
+              "content": "Likes a message for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                "like.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the message to like"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e0bc1ebe-ec6c-45b3-9874-e2d37d6a2282",
+              "name": "Message liked successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "like.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The ID of the message to like",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 505\n  },\n  \"message\": {\n    \"id\": 9752,\n    \"body\": \"string\",\n    \"created_at\": \"1993-08-31T16:00:49.481Z\",\n    \"user\": {\n      \"id\": 3043,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"https://NK.wqlCnzDhmMXRUkGUB-7KbfBbn7OzcHS7MoEhFJNQi\",\n      \"avatar_url_ssl\": \"http://ULHuSqbCITCyvHfU.gomnylqyH.4t,GQlr,SeChyD1npacFN,JITUq3IABerpQfxKoxEr+vUWwp\",\n      \"join_date\": \"1962-01-03T10:05:21.996Z\",\n      \"official\": true,\n      \"followers\": 4570,\n      \"following\": 2311,\n      \"ideas\": 599,\n      \"watchlist_stocks_count\": 7019,\n      \"like_count\": 3827,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"source\": {\n      \"id\": 1676,\n      \"title\": \"string\",\n      \"url\": \"http://OPwmOhjiceIVXSsFJQHyuvw.eprIjsyDmzHQwXJ9MBy3Pic1fB9rCGszOM5GaaS\"\n    },\n    \"symbols\": [\n      {\n        \"id\": 338,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": false,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6232\n      },\n      {\n        \"id\": 7786,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 7377\n      }\n    ],\n    \"entities\": {\n      \"sentiment\": {\n        \"basic\": \"Bearish\"\n      },\n      \"chart\": {\n        \"thumb\": \"https://PHBCeWMhjQjrsNNtHBdMkotyCYG.diYCTkGYmWSX,kMoz\",\n        \"large\": \"http://dGlkCAAUdHZPwcyiG.lcPan6qbFmcUc9DkT46OqEPeENE5guFIMxXjDf.xX+..iepfMUFU\",\n        \"original\": \"http://DTnIn.uuctFm7vX7In6od5\",\n        \"url\": \"http://agFyMOKhtKMKGkOATaIWVdjwBWqIEomrm.gyjraSaHsnpCDjBr4FP2kDBi+T\"\n      }\n    },\n    \"conversation\": {\n      \"parent_message_id\": 983,\n      \"in_reply_to_message_id\": 8319,\n      \"parent\": false,\n      \"replies\": 68\n    },\n    \"likes\": {\n      \"total\": 2042,\n      \"user_ids\": [\n        2254,\n        3777\n      ]\n    },\n    \"reshares\": {\n      \"reshared_count\": 3396,\n      \"user_ids\": [\n        6688,\n        4830\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "6962c407-981f-4ae2-8a54-662f4c451943",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "like.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The ID of the message to like",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 1036\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d97679b8-18c6-41ea-9803-12b0933725c5",
+          "name": "Unlike Message",
+          "request": {
+            "name": "Unlike Message",
+            "description": {
+              "content": "Unlikes a previously liked message for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "messages",
+                "unlike.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) The ID of the message to unlike"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "d782b51f-555d-47fa-bb63-b666a29b4884",
+              "name": "Message unliked successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "messages",
+                    "unlike.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The ID of the message to unlike",
+                        "type": "text/plain"
+                      },
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 505\n  },\n  \"message\": {\n    \"id\": 9752,\n    \"body\": \"string\",\n    \"created_at\": \"1993-08-31T16:00:49.481Z\",\n    \"user\": {\n      \"id\": 3043,\n      \"username\": \"string\",\n      \"name\": \"string\",\n      \"avatar_url\": \"https://NK.wqlCnzDhmMXRUkGUB-7KbfBbn7OzcHS7MoEhFJNQi\",\n      \"avatar_url_ssl\": \"http://ULHuSqbCITCyvHfU.gomnylqyH.4t,GQlr,SeChyD1npacFN,JITUq3IABerpQfxKoxEr+vUWwp\",\n      \"join_date\": \"1962-01-03T10:05:21.996Z\",\n      \"official\": true,\n      \"followers\": 4570,\n      \"following\": 2311,\n      \"ideas\": 599,\n      \"watchlist_stocks_count\": 7019,\n      \"like_count\": 3827,\n      \"classification\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    \"source\": {\n      \"id\": 1676,\n      \"title\": \"string\",\n      \"url\": \"http://OPwmOhjiceIVXSsFJQHyuvw.eprIjsyDmzHQwXJ9MBy3Pic1fB9rCGszOM5GaaS\"\n    },\n    \"symbols\": [\n      {\n        \"id\": 338,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": false,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6232\n      },\n      {\n        \"id\": 7786,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 7377\n      }\n    ],\n    \"entities\": {\n      \"sentiment\": {\n        \"basic\": \"Bearish\"\n      },\n      \"chart\": {\n        \"thumb\": \"https://PHBCeWMhjQjrsNNtHBdMkotyCYG.diYCTkGYmWSX,kMoz\",\n        \"large\": \"http://dGlkCAAUdHZPwcyiG.lcPan6qbFmcUc9DkT46OqEPeENE5guFIMxXjDf.xX+..iepfMUFU\",\n        \"original\": \"http://DTnIn.uuctFm7vX7In6od5\",\n        \"url\": \"http://agFyMOKhtKMKGkOATaIWVdjwBWqIEomrm.gyjraSaHsnpCDjBr4FP2kDBi+T\"\n      }\n    },\n    \"conversation\": {\n      \"parent_message_id\": 983,\n      \"in_reply_to_message_id\": 8319,\n      \"parent\": false,\n      \"replies\": 68\n    },\n    \"likes\": {\n      \"total\": 2042,\n      \"user_ids\": [\n        2254,\n        3777\n      ]\n    },\n    \"reshares\": {\n      \"reshared_count\": 3396,\n      \"user_ids\": [\n        6688,\n        4830\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The message ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "message_id"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "572acaff-4fe0-4ef6-8d0b-cae24ebc3df2",
+    "name": "StockTwits Account Messages API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

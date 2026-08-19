@@ -1,0 +1,73 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Verify Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/account/verify.json",
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Verifies the authenticated user's credentials and returns their profile information."
+        },
+        {
+          "info": {
+            "name": "Update Account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/account/update.json",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "name",
+                  "value": ""
+                },
+                {
+                  "name": "email",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Updates the authenticated user's profile information."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

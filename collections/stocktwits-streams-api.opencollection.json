@@ -1,0 +1,307 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account Streams API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Streams",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Symbol Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/streams/symbol/:symbol.json",
+            "params": [
+              {
+                "name": "symbol",
+                "value": "",
+                "type": "path",
+                "description": "Ticker symbol, e.g. AAPL, TSLA"
+              },
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID greater than the specified ID"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID less than or equal to the specified ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (default 30, max 30)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter messages by links, charts, or videos"
+              }
+            ]
+          },
+          "docs": "Returns the most recent messages for the specified symbol. This stream includes all messages that contain the specified symbol, including those from private accounts if the authenticated user follows them."
+        },
+        {
+          "info": {
+            "name": "User Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/streams/user/:user_id.json",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "User ID or username"
+              },
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID greater than the specified ID"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID less than or equal to the specified ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (default 30, max 30)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter messages by links, charts, or videos"
+              }
+            ]
+          },
+          "docs": "Returns the most recent messages for the specified user."
+        },
+        {
+          "info": {
+            "name": "Home Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/streams/home.json",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID greater than the specified ID"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID less than or equal to the specified ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (default 30, max 30)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter messages by links, charts, or videos"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns the most recent messages from the authenticated user's home stream, including messages from users and symbols they follow."
+        },
+        {
+          "info": {
+            "name": "Friends Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/streams/friends.json",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID greater than the specified ID"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID less than or equal to the specified ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (default 30, max 30)"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns the most recent messages from users the authenticated user follows."
+        },
+        {
+          "info": {
+            "name": "Trending Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/streams/trending.json",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID greater than the specified ID"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID less than or equal to the specified ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (default 30, max 30)"
+              }
+            ]
+          },
+          "docs": "Returns the most recent messages with trending sentiment on StockTwits."
+        },
+        {
+          "info": {
+            "name": "All Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/streams/all.json",
+            "params": [
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID greater than the specified ID"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID less than or equal to the specified ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (default 30, max 30)"
+              },
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query",
+                "description": "Filter messages by links, charts, or videos"
+              }
+            ]
+          },
+          "docs": "Returns the most recent messages across StockTwits."
+        },
+        {
+          "info": {
+            "name": "Watchlist Stream",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/streams/watchlist/:watchlist_id.json",
+            "params": [
+              {
+                "name": "watchlist_id",
+                "value": "",
+                "type": "path",
+                "description": "The watchlist ID"
+              },
+              {
+                "name": "since",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID greater than the specified ID"
+              },
+              {
+                "name": "max",
+                "value": "",
+                "type": "query",
+                "description": "Returns results with an ID less than or equal to the specified ID"
+              },
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Number of results to return (default 30, max 30)"
+              }
+            ],
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Returns the most recent messages for the symbols in the specified watchlist."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

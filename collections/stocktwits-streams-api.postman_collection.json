@@ -1,0 +1,1261 @@
+{
+  "item": [
+    {
+      "id": "4d5e8f06-6539-4dac-b3fc-0b1c6714af23",
+      "name": "Streams",
+      "description": {
+        "content": "Stream endpoints return collections of messages (twits). Streams can be filtered by symbol, user, trending, etc.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "063d942f-c7e2-4317-8e66-5882993d65fc",
+          "name": "Symbol Stream",
+          "request": {
+            "name": "Symbol Stream",
+            "description": {
+              "content": "Returns the most recent messages for the specified symbol. This stream includes all messages that contain the specified symbol, including those from private accounts if the authenticated user follows them.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streams",
+                "symbol",
+                "{{symbol}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID greater than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID less than or equal to the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of results to return (default 30, max 30)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter messages by links, charts, or videos"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "66da2bc4-17b9-4a97-a739-9745e785954e",
+              "name": "Successful response with messages for the symbol",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "symbol",
+                    "{{symbol}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 3859\n  },\n  \"symbol\": {\n    \"id\": 8729,\n    \"symbol\": \"string\",\n    \"title\": \"string\",\n    \"aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_following\": false,\n    \"has_pricing\": true,\n    \"watchlist_count\": 9969\n  },\n  \"cursor\": {\n    \"more\": true,\n    \"since\": 4009,\n    \"max\": 2275\n  },\n  \"messages\": [\n    {\n      \"id\": 9918,\n      \"body\": \"string\",\n      \"created_at\": \"2024-04-16T00:11:00.721Z\",\n      \"user\": {\n        \"id\": 9787,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"http://sOgCWsL.xelipWVjGKz4w3qxDPrJD1GbWsVdHWqtze,bSAuhX\",\n        \"avatar_url_ssl\": \"http://EsZeMujvnPvqljQskEhRplXFuZxE.hqaZBjBUTPb,OZJ\",\n        \"join_date\": \"2023-05-29T16:51:24.728Z\",\n        \"official\": false,\n        \"followers\": 1643,\n        \"following\": 6623,\n        \"ideas\": 4226,\n        \"watchlist_stocks_count\": 1161,\n        \"like_count\": 3663,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 6167,\n        \"title\": \"string\",\n        \"url\": \"http://PumwOlq.odyEk\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 6343,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": true,\n          \"watchlist_count\": 4319\n        },\n        {\n          \"id\": 2334,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": true,\n          \"watchlist_count\": 5192\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bullish\"\n        },\n        \"chart\": {\n          \"thumb\": \"http://Eg.bmfXUxU8POzEfmk1SNrhunSzV0rL0KjYkU2MIRUGfSPRXp1jitvF3VHOwozCM-zM6Jd\",\n          \"large\": \"https://svrgWXvLeU.jvl,kfQ.cFOminf-83hf8pe3neOey+z9rVJwY9k1wQ6VqXR\",\n          \"original\": \"http://uQJwphXwjsujcLvWZcA.btvMaV,z0xSmYvtMSg-PYFNgd0eQetuybi3cEGje-UhG8vOknX.pc6vQSlAf8OaYr\",\n          \"url\": \"http://m.aozvYFZWNnvZLh6,Fg41vsx6pFaAMWSedZs9KqRraxK7,POsRpwHZW.LG\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 9306,\n        \"in_reply_to_message_id\": 5823,\n        \"parent\": true,\n        \"replies\": 466\n      },\n      \"likes\": {\n        \"total\": 3780,\n        \"user_ids\": [\n          8653,\n          1881\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 2181,\n        \"user_ids\": [\n          5846,\n          2744\n        ]\n      }\n    },\n    {\n      \"id\": 4091,\n      \"body\": \"string\",\n      \"created_at\": \"1988-02-15T09:19:31.854Z\",\n      \"user\": {\n        \"id\": 6488,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"https://KwuS.ksckD8i0BFmthtwCL21rpMjzxpzGYG1fdCzcGGt3PrPWA7t\",\n        \"avatar_url_ssl\": \"https://wz.xhVs3HW0a\",\n        \"join_date\": \"1952-10-23T10:47:36.168Z\",\n        \"official\": false,\n        \"followers\": 6972,\n        \"following\": 450,\n        \"ideas\": 6023,\n        \"watchlist_stocks_count\": 6731,\n        \"like_count\": 5989,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 567,\n        \"title\": \"string\",\n        \"url\": \"http://YBKvrWRmijNPQfDGrqHrUmKehnlswxo.koyyhgpwuwkEDmdD\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 8969,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 2834\n        },\n        {\n          \"id\": 7027,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": true,\n          \"watchlist_count\": 7820\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bearish\"\n        },\n        \"chart\": {\n          \"thumb\": \"http://XLRXLKFwlGXtiR.gva9WNHqxx8T8qozCNwrxJgy1oT-SIoJfn3cOuOa-++yp2rGjJlzHL\",\n          \"large\": \"https://gfoUXgD.jfImHB6qRp4zEwfXqhXW0vffVxRqKGFmIxafO7V7OtfHjYOx9S9mqmiwnAOR+OKmlei\",\n          \"original\": \"http://EtaPYdNmqnXqfavBDqXqPgBWUuqb.oeD.tqCbKxKm6r95Ha,mw8RCj6lXP.7i0iCF,Gv252ffd1nINWGuBmKgh2B,k97G5vnDn\",\n          \"url\": \"http://PgIIRgeceNCufAYVsTcyLpeRyYWzwM.dwuiLNkSdYBx4HV37XhDDQ2ihbmyYG5aX6fj-6\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 5755,\n        \"in_reply_to_message_id\": 283,\n        \"parent\": true,\n        \"replies\": 8252\n      },\n      \"likes\": {\n        \"total\": 7662,\n        \"user_ids\": [\n          7162,\n          2205\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 8582,\n        \"user_ids\": [\n          3556,\n          249\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9028d10f-56f5-47cf-9ae2-148c82724aeb",
+              "name": "Symbol not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "symbol",
+                    "{{symbol}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 4656\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b8388c62-f436-4a0f-bcdd-13b6e3f10f0a",
+              "name": "Rate limit exceeded",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "symbol",
+                    "{{symbol}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Too Many Requests",
+              "code": 429,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 4540\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6cbd0b0f-54a7-46e5-9368-98d634a6c5d7",
+          "name": "User Stream",
+          "request": {
+            "name": "User Stream",
+            "description": {
+              "content": "Returns the most recent messages for the specified user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streams",
+                "user",
+                "{{user_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID greater than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID less than or equal to the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of results to return (default 30, max 30)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter messages by links, charts, or videos"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4a5b2c73-de75-49b4-bd9a-9edbf6c7562f",
+              "name": "Successful response with messages for the user",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "user",
+                    "{{user_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6814\n  },\n  \"symbol\": {\n    \"id\": 2268,\n    \"symbol\": \"string\",\n    \"title\": \"string\",\n    \"aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_following\": true,\n    \"has_pricing\": false,\n    \"watchlist_count\": 2580\n  },\n  \"cursor\": {\n    \"more\": false,\n    \"since\": 8635,\n    \"max\": 7230\n  },\n  \"messages\": [\n    {\n      \"id\": 2336,\n      \"body\": \"string\",\n      \"created_at\": \"2011-10-25T01:25:57.663Z\",\n      \"user\": {\n        \"id\": 667,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"https://bniFWELcZCIYteJYAaINBLinjaJ.ihgEgW5ue2vIQA6M17k5T.,dClJ\",\n        \"avatar_url_ssl\": \"http://wuPCptxONDtVL.yoajQZo.uDFjxS.UnDzCY+kpbmEpCFiCuXEP\",\n        \"join_date\": \"2007-02-10T19:21:16.033Z\",\n        \"official\": false,\n        \"followers\": 2989,\n        \"following\": 3558,\n        \"ideas\": 3278,\n        \"watchlist_stocks_count\": 7341,\n        \"like_count\": 1425,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 4806,\n        \"title\": \"string\",\n        \"url\": \"http://VQSEjziEcqGbJVXAdeGH.meyXFWXIfCSSdtI\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1938,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9220\n        },\n        {\n          \"id\": 6162,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9541\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bearish\"\n        },\n        \"chart\": {\n          \"thumb\": \"https://tyaoSHPLKfgcQGuPuTsHdIpQVZctB.cisyEtDfmVp-mn2ZHAFVRN3d\",\n          \"large\": \"https://HSexuTvnZGFzjofdwvvDYGi.vtDebBlAUdKQSlHDmkZBhIMn7BTm.wy-\",\n          \"original\": \"https://DVYCljIwkKMWMmFPEUIeXtRFIcyHvhuB.vjbxQVS1VxGhjUHLzmQMGIBAVY2KFR.RrfUqInIBUTXbT\",\n          \"url\": \"http://qczWEwB.rmSl746b8oQddSP8aA3UEuDkhkJDil\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 3060,\n        \"in_reply_to_message_id\": 8836,\n        \"parent\": false,\n        \"replies\": 7009\n      },\n      \"likes\": {\n        \"total\": 757,\n        \"user_ids\": [\n          3472,\n          7265\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 4187,\n        \"user_ids\": [\n          7464,\n          4678\n        ]\n      }\n    },\n    {\n      \"id\": 7692,\n      \"body\": \"string\",\n      \"created_at\": \"2015-03-06T01:10:15.509Z\",\n      \"user\": {\n        \"id\": 3705,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"http://IRpCHoCEeBCDlNPQdp.isnzM\",\n        \"avatar_url_ssl\": \"http://zXVUxcbjNSiddxA.ibzlxwC4TzEl99f1reC4ZWDI8ZIOCCQ.q0ouAF.Osy7qON-1TscNaNo8anIN7pbCJOas+Umrj3P5\",\n        \"join_date\": \"2019-11-05T20:53:19.559Z\",\n        \"official\": false,\n        \"followers\": 8814,\n        \"following\": 9264,\n        \"ideas\": 7307,\n        \"watchlist_stocks_count\": 6481,\n        \"like_count\": 8622,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 7736,\n        \"title\": \"string\",\n        \"url\": \"https://uitlpOHhhDY.abglViPb5lJw\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1666,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 6990\n        },\n        {\n          \"id\": 2996,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": true,\n          \"watchlist_count\": 2102\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bullish\"\n        },\n        \"chart\": {\n          \"thumb\": \"http://VxzoEZFzXJSvImVuoCMKRil.ighisIFt0qFQCSSRoywHueNvt-ByXyETOp6kpY-S0gcGEXckUxJxzd\",\n          \"large\": \"http://kowdcCoDwAybfBlPmOkt.ctjqtWjy9kRJXk5T6yMlv8w6hfTzrCv-faQ-krmK7jCrcf.zSSkRag5..Sg4qm3KnQ0zzAjEZt0s1lZQWi\",\n          \"original\": \"http://oUiPLv.lkydpxyuIqw32Hf362C+BMxqDQFpaEhBwQkAiXWzmAEpYupPnJJLdRb\",\n          \"url\": \"https://icLK.eqMtAj-QpzpMpxcf3NVvSImufwSZQ6zjJqfJu+aNXUfXKydDUVxeTTowfnCio8zhp\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 2115,\n        \"in_reply_to_message_id\": 3922,\n        \"parent\": false,\n        \"replies\": 8357\n      },\n      \"likes\": {\n        \"total\": 2731,\n        \"user_ids\": [\n          8046,\n          4947\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 7151,\n        \"user_ids\": [\n          5093,\n          1730\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "72790513-a478-442f-b591-581b1b42a6e3",
+              "name": "User not found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "user",
+                    "{{user_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 4540\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d34feea-29f2-4b60-9874-6f78cdcf175d",
+          "name": "Home Stream",
+          "request": {
+            "name": "Home Stream",
+            "description": {
+              "content": "Returns the most recent messages from the authenticated user's home stream, including messages from users and symbols they follow.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streams",
+                "home.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID greater than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID less than or equal to the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of results to return (default 30, max 30)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter messages by links, charts, or videos"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a95a6e76-4854-4210-a7c8-712cc48abb43",
+              "name": "Successful response with home stream messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "home.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6814\n  },\n  \"symbol\": {\n    \"id\": 2268,\n    \"symbol\": \"string\",\n    \"title\": \"string\",\n    \"aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_following\": true,\n    \"has_pricing\": false,\n    \"watchlist_count\": 2580\n  },\n  \"cursor\": {\n    \"more\": false,\n    \"since\": 8635,\n    \"max\": 7230\n  },\n  \"messages\": [\n    {\n      \"id\": 2336,\n      \"body\": \"string\",\n      \"created_at\": \"2011-10-25T01:25:57.663Z\",\n      \"user\": {\n        \"id\": 667,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"https://bniFWELcZCIYteJYAaINBLinjaJ.ihgEgW5ue2vIQA6M17k5T.,dClJ\",\n        \"avatar_url_ssl\": \"http://wuPCptxONDtVL.yoajQZo.uDFjxS.UnDzCY+kpbmEpCFiCuXEP\",\n        \"join_date\": \"2007-02-10T19:21:16.033Z\",\n        \"official\": false,\n        \"followers\": 2989,\n        \"following\": 3558,\n        \"ideas\": 3278,\n        \"watchlist_stocks_count\": 7341,\n        \"like_count\": 1425,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 4806,\n        \"title\": \"string\",\n        \"url\": \"http://VQSEjziEcqGbJVXAdeGH.meyXFWXIfCSSdtI\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1938,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9220\n        },\n        {\n          \"id\": 6162,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9541\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bearish\"\n        },\n        \"chart\": {\n          \"thumb\": \"https://tyaoSHPLKfgcQGuPuTsHdIpQVZctB.cisyEtDfmVp-mn2ZHAFVRN3d\",\n          \"large\": \"https://HSexuTvnZGFzjofdwvvDYGi.vtDebBlAUdKQSlHDmkZBhIMn7BTm.wy-\",\n          \"original\": \"https://DVYCljIwkKMWMmFPEUIeXtRFIcyHvhuB.vjbxQVS1VxGhjUHLzmQMGIBAVY2KFR.RrfUqInIBUTXbT\",\n          \"url\": \"http://qczWEwB.rmSl746b8oQddSP8aA3UEuDkhkJDil\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 3060,\n        \"in_reply_to_message_id\": 8836,\n        \"parent\": false,\n        \"replies\": 7009\n      },\n      \"likes\": {\n        \"total\": 757,\n        \"user_ids\": [\n          3472,\n          7265\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 4187,\n        \"user_ids\": [\n          7464,\n          4678\n        ]\n      }\n    },\n    {\n      \"id\": 7692,\n      \"body\": \"string\",\n      \"created_at\": \"2015-03-06T01:10:15.509Z\",\n      \"user\": {\n        \"id\": 3705,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"http://IRpCHoCEeBCDlNPQdp.isnzM\",\n        \"avatar_url_ssl\": \"http://zXVUxcbjNSiddxA.ibzlxwC4TzEl99f1reC4ZWDI8ZIOCCQ.q0ouAF.Osy7qON-1TscNaNo8anIN7pbCJOas+Umrj3P5\",\n        \"join_date\": \"2019-11-05T20:53:19.559Z\",\n        \"official\": false,\n        \"followers\": 8814,\n        \"following\": 9264,\n        \"ideas\": 7307,\n        \"watchlist_stocks_count\": 6481,\n        \"like_count\": 8622,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 7736,\n        \"title\": \"string\",\n        \"url\": \"https://uitlpOHhhDY.abglViPb5lJw\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1666,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 6990\n        },\n        {\n          \"id\": 2996,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": true,\n          \"watchlist_count\": 2102\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bullish\"\n        },\n        \"chart\": {\n          \"thumb\": \"http://VxzoEZFzXJSvImVuoCMKRil.ighisIFt0qFQCSSRoywHueNvt-ByXyETOp6kpY-S0gcGEXckUxJxzd\",\n          \"large\": \"http://kowdcCoDwAybfBlPmOkt.ctjqtWjy9kRJXk5T6yMlv8w6hfTzrCv-faQ-krmK7jCrcf.zSSkRag5..Sg4qm3KnQ0zzAjEZt0s1lZQWi\",\n          \"original\": \"http://oUiPLv.lkydpxyuIqw32Hf362C+BMxqDQFpaEhBwQkAiXWzmAEpYupPnJJLdRb\",\n          \"url\": \"https://icLK.eqMtAj-QpzpMpxcf3NVvSImufwSZQ6zjJqfJu+aNXUfXKydDUVxeTTowfnCio8zhp\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 2115,\n        \"in_reply_to_message_id\": 3922,\n        \"parent\": false,\n        \"replies\": 8357\n      },\n      \"likes\": {\n        \"total\": 2731,\n        \"user_ids\": [\n          8046,\n          4947\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 7151,\n        \"user_ids\": [\n          5093,\n          1730\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "262144e6-1207-4ef2-a8e0-4b3602855461",
+              "name": "Unauthorized - authentication required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "home.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 4540\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a2710f07-2b82-4117-91e0-6527cbb95ca7",
+          "name": "Friends Stream",
+          "request": {
+            "name": "Friends Stream",
+            "description": {
+              "content": "Returns the most recent messages from users the authenticated user follows.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streams",
+                "friends.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID greater than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID less than or equal to the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of results to return (default 30, max 30)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "98cddf9b-263f-4f09-b44d-dda92f93ff98",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "friends.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6814\n  },\n  \"symbol\": {\n    \"id\": 2268,\n    \"symbol\": \"string\",\n    \"title\": \"string\",\n    \"aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_following\": true,\n    \"has_pricing\": false,\n    \"watchlist_count\": 2580\n  },\n  \"cursor\": {\n    \"more\": false,\n    \"since\": 8635,\n    \"max\": 7230\n  },\n  \"messages\": [\n    {\n      \"id\": 2336,\n      \"body\": \"string\",\n      \"created_at\": \"2011-10-25T01:25:57.663Z\",\n      \"user\": {\n        \"id\": 667,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"https://bniFWELcZCIYteJYAaINBLinjaJ.ihgEgW5ue2vIQA6M17k5T.,dClJ\",\n        \"avatar_url_ssl\": \"http://wuPCptxONDtVL.yoajQZo.uDFjxS.UnDzCY+kpbmEpCFiCuXEP\",\n        \"join_date\": \"2007-02-10T19:21:16.033Z\",\n        \"official\": false,\n        \"followers\": 2989,\n        \"following\": 3558,\n        \"ideas\": 3278,\n        \"watchlist_stocks_count\": 7341,\n        \"like_count\": 1425,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 4806,\n        \"title\": \"string\",\n        \"url\": \"http://VQSEjziEcqGbJVXAdeGH.meyXFWXIfCSSdtI\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1938,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9220\n        },\n        {\n          \"id\": 6162,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9541\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bearish\"\n        },\n        \"chart\": {\n          \"thumb\": \"https://tyaoSHPLKfgcQGuPuTsHdIpQVZctB.cisyEtDfmVp-mn2ZHAFVRN3d\",\n          \"large\": \"https://HSexuTvnZGFzjofdwvvDYGi.vtDebBlAUdKQSlHDmkZBhIMn7BTm.wy-\",\n          \"original\": \"https://DVYCljIwkKMWMmFPEUIeXtRFIcyHvhuB.vjbxQVS1VxGhjUHLzmQMGIBAVY2KFR.RrfUqInIBUTXbT\",\n          \"url\": \"http://qczWEwB.rmSl746b8oQddSP8aA3UEuDkhkJDil\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 3060,\n        \"in_reply_to_message_id\": 8836,\n        \"parent\": false,\n        \"replies\": 7009\n      },\n      \"likes\": {\n        \"total\": 757,\n        \"user_ids\": [\n          3472,\n          7265\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 4187,\n        \"user_ids\": [\n          7464,\n          4678\n        ]\n      }\n    },\n    {\n      \"id\": 7692,\n      \"body\": \"string\",\n      \"created_at\": \"2015-03-06T01:10:15.509Z\",\n      \"user\": {\n        \"id\": 3705,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"http://IRpCHoCEeBCDlNPQdp.isnzM\",\n        \"avatar_url_ssl\": \"http://zXVUxcbjNSiddxA.ibzlxwC4TzEl99f1reC4ZWDI8ZIOCCQ.q0ouAF.Osy7qON-1TscNaNo8anIN7pbCJOas+Umrj3P5\",\n        \"join_date\": \"2019-11-05T20:53:19.559Z\",\n        \"official\": false,\n        \"followers\": 8814,\n        \"following\": 9264,\n        \"ideas\": 7307,\n        \"watchlist_stocks_count\": 6481,\n        \"like_count\": 8622,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 7736,\n        \"title\": \"string\",\n        \"url\": \"https://uitlpOHhhDY.abglViPb5lJw\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1666,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 6990\n        },\n        {\n          \"id\": 2996,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": true,\n          \"watchlist_count\": 2102\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bullish\"\n        },\n        \"chart\": {\n          \"thumb\": \"http://VxzoEZFzXJSvImVuoCMKRil.ighisIFt0qFQCSSRoywHueNvt-ByXyETOp6kpY-S0gcGEXckUxJxzd\",\n          \"large\": \"http://kowdcCoDwAybfBlPmOkt.ctjqtWjy9kRJXk5T6yMlv8w6hfTzrCv-faQ-krmK7jCrcf.zSSkRag5..Sg4qm3KnQ0zzAjEZt0s1lZQWi\",\n          \"original\": \"http://oUiPLv.lkydpxyuIqw32Hf362C+BMxqDQFpaEhBwQkAiXWzmAEpYupPnJJLdRb\",\n          \"url\": \"https://icLK.eqMtAj-QpzpMpxcf3NVvSImufwSZQ6zjJqfJu+aNXUfXKydDUVxeTTowfnCio8zhp\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 2115,\n        \"in_reply_to_message_id\": 3922,\n        \"parent\": false,\n        \"replies\": 8357\n      },\n      \"likes\": {\n        \"total\": 2731,\n        \"user_ids\": [\n          8046,\n          4947\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 7151,\n        \"user_ids\": [\n          5093,\n          1730\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9c5f47d4-52f2-4e8f-81cf-43ae18021412",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "friends.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 4540\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ed38c76f-127c-467b-82d2-3ecdc64961e7",
+          "name": "Trending Stream",
+          "request": {
+            "name": "Trending Stream",
+            "description": {
+              "content": "Returns the most recent messages with trending sentiment on StockTwits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streams",
+                "trending.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID greater than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID less than or equal to the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of results to return (default 30, max 30)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b8591046-03f7-49b9-b3ae-d7b169541d85",
+              "name": "Successful response with trending messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "trending.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6814\n  },\n  \"symbol\": {\n    \"id\": 2268,\n    \"symbol\": \"string\",\n    \"title\": \"string\",\n    \"aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_following\": true,\n    \"has_pricing\": false,\n    \"watchlist_count\": 2580\n  },\n  \"cursor\": {\n    \"more\": false,\n    \"since\": 8635,\n    \"max\": 7230\n  },\n  \"messages\": [\n    {\n      \"id\": 2336,\n      \"body\": \"string\",\n      \"created_at\": \"2011-10-25T01:25:57.663Z\",\n      \"user\": {\n        \"id\": 667,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"https://bniFWELcZCIYteJYAaINBLinjaJ.ihgEgW5ue2vIQA6M17k5T.,dClJ\",\n        \"avatar_url_ssl\": \"http://wuPCptxONDtVL.yoajQZo.uDFjxS.UnDzCY+kpbmEpCFiCuXEP\",\n        \"join_date\": \"2007-02-10T19:21:16.033Z\",\n        \"official\": false,\n        \"followers\": 2989,\n        \"following\": 3558,\n        \"ideas\": 3278,\n        \"watchlist_stocks_count\": 7341,\n        \"like_count\": 1425,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 4806,\n        \"title\": \"string\",\n        \"url\": \"http://VQSEjziEcqGbJVXAdeGH.meyXFWXIfCSSdtI\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1938,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9220\n        },\n        {\n          \"id\": 6162,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9541\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bearish\"\n        },\n        \"chart\": {\n          \"thumb\": \"https://tyaoSHPLKfgcQGuPuTsHdIpQVZctB.cisyEtDfmVp-mn2ZHAFVRN3d\",\n          \"large\": \"https://HSexuTvnZGFzjofdwvvDYGi.vtDebBlAUdKQSlHDmkZBhIMn7BTm.wy-\",\n          \"original\": \"https://DVYCljIwkKMWMmFPEUIeXtRFIcyHvhuB.vjbxQVS1VxGhjUHLzmQMGIBAVY2KFR.RrfUqInIBUTXbT\",\n          \"url\": \"http://qczWEwB.rmSl746b8oQddSP8aA3UEuDkhkJDil\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 3060,\n        \"in_reply_to_message_id\": 8836,\n        \"parent\": false,\n        \"replies\": 7009\n      },\n      \"likes\": {\n        \"total\": 757,\n        \"user_ids\": [\n          3472,\n          7265\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 4187,\n        \"user_ids\": [\n          7464,\n          4678\n        ]\n      }\n    },\n    {\n      \"id\": 7692,\n      \"body\": \"string\",\n      \"created_at\": \"2015-03-06T01:10:15.509Z\",\n      \"user\": {\n        \"id\": 3705,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"http://IRpCHoCEeBCDlNPQdp.isnzM\",\n        \"avatar_url_ssl\": \"http://zXVUxcbjNSiddxA.ibzlxwC4TzEl99f1reC4ZWDI8ZIOCCQ.q0ouAF.Osy7qON-1TscNaNo8anIN7pbCJOas+Umrj3P5\",\n        \"join_date\": \"2019-11-05T20:53:19.559Z\",\n        \"official\": false,\n        \"followers\": 8814,\n        \"following\": 9264,\n        \"ideas\": 7307,\n        \"watchlist_stocks_count\": 6481,\n        \"like_count\": 8622,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 7736,\n        \"title\": \"string\",\n        \"url\": \"https://uitlpOHhhDY.abglViPb5lJw\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1666,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 6990\n        },\n        {\n          \"id\": 2996,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": true,\n          \"watchlist_count\": 2102\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bullish\"\n        },\n        \"chart\": {\n          \"thumb\": \"http://VxzoEZFzXJSvImVuoCMKRil.ighisIFt0qFQCSSRoywHueNvt-ByXyETOp6kpY-S0gcGEXckUxJxzd\",\n          \"large\": \"http://kowdcCoDwAybfBlPmOkt.ctjqtWjy9kRJXk5T6yMlv8w6hfTzrCv-faQ-krmK7jCrcf.zSSkRag5..Sg4qm3KnQ0zzAjEZt0s1lZQWi\",\n          \"original\": \"http://oUiPLv.lkydpxyuIqw32Hf362C+BMxqDQFpaEhBwQkAiXWzmAEpYupPnJJLdRb\",\n          \"url\": \"https://icLK.eqMtAj-QpzpMpxcf3NVvSImufwSZQ6zjJqfJu+aNXUfXKydDUVxeTTowfnCio8zhp\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 2115,\n        \"in_reply_to_message_id\": 3922,\n        \"parent\": false,\n        \"replies\": 8357\n      },\n      \"likes\": {\n        \"total\": 2731,\n        \"user_ids\": [\n          8046,\n          4947\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 7151,\n        \"user_ids\": [\n          5093,\n          1730\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c7847ed-466a-495a-9a0a-0b7ca9c61e19",
+          "name": "All Stream",
+          "request": {
+            "name": "All Stream",
+            "description": {
+              "content": "Returns the most recent messages across StockTwits.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streams",
+                "all.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID greater than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID less than or equal to the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of results to return (default 30, max 30)"
+                },
+                {
+                  "disabled": false,
+                  "key": "filter",
+                  "value": "<string>",
+                  "description": "Filter messages by links, charts, or videos"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7447e49c-f636-4789-9f6e-6a1a6f164b46",
+              "name": "Successful response with all stream messages",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "all.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    },
+                    {
+                      "key": "filter",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6814\n  },\n  \"symbol\": {\n    \"id\": 2268,\n    \"symbol\": \"string\",\n    \"title\": \"string\",\n    \"aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_following\": true,\n    \"has_pricing\": false,\n    \"watchlist_count\": 2580\n  },\n  \"cursor\": {\n    \"more\": false,\n    \"since\": 8635,\n    \"max\": 7230\n  },\n  \"messages\": [\n    {\n      \"id\": 2336,\n      \"body\": \"string\",\n      \"created_at\": \"2011-10-25T01:25:57.663Z\",\n      \"user\": {\n        \"id\": 667,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"https://bniFWELcZCIYteJYAaINBLinjaJ.ihgEgW5ue2vIQA6M17k5T.,dClJ\",\n        \"avatar_url_ssl\": \"http://wuPCptxONDtVL.yoajQZo.uDFjxS.UnDzCY+kpbmEpCFiCuXEP\",\n        \"join_date\": \"2007-02-10T19:21:16.033Z\",\n        \"official\": false,\n        \"followers\": 2989,\n        \"following\": 3558,\n        \"ideas\": 3278,\n        \"watchlist_stocks_count\": 7341,\n        \"like_count\": 1425,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 4806,\n        \"title\": \"string\",\n        \"url\": \"http://VQSEjziEcqGbJVXAdeGH.meyXFWXIfCSSdtI\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1938,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9220\n        },\n        {\n          \"id\": 6162,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9541\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bearish\"\n        },\n        \"chart\": {\n          \"thumb\": \"https://tyaoSHPLKfgcQGuPuTsHdIpQVZctB.cisyEtDfmVp-mn2ZHAFVRN3d\",\n          \"large\": \"https://HSexuTvnZGFzjofdwvvDYGi.vtDebBlAUdKQSlHDmkZBhIMn7BTm.wy-\",\n          \"original\": \"https://DVYCljIwkKMWMmFPEUIeXtRFIcyHvhuB.vjbxQVS1VxGhjUHLzmQMGIBAVY2KFR.RrfUqInIBUTXbT\",\n          \"url\": \"http://qczWEwB.rmSl746b8oQddSP8aA3UEuDkhkJDil\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 3060,\n        \"in_reply_to_message_id\": 8836,\n        \"parent\": false,\n        \"replies\": 7009\n      },\n      \"likes\": {\n        \"total\": 757,\n        \"user_ids\": [\n          3472,\n          7265\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 4187,\n        \"user_ids\": [\n          7464,\n          4678\n        ]\n      }\n    },\n    {\n      \"id\": 7692,\n      \"body\": \"string\",\n      \"created_at\": \"2015-03-06T01:10:15.509Z\",\n      \"user\": {\n        \"id\": 3705,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"http://IRpCHoCEeBCDlNPQdp.isnzM\",\n        \"avatar_url_ssl\": \"http://zXVUxcbjNSiddxA.ibzlxwC4TzEl99f1reC4ZWDI8ZIOCCQ.q0ouAF.Osy7qON-1TscNaNo8anIN7pbCJOas+Umrj3P5\",\n        \"join_date\": \"2019-11-05T20:53:19.559Z\",\n        \"official\": false,\n        \"followers\": 8814,\n        \"following\": 9264,\n        \"ideas\": 7307,\n        \"watchlist_stocks_count\": 6481,\n        \"like_count\": 8622,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 7736,\n        \"title\": \"string\",\n        \"url\": \"https://uitlpOHhhDY.abglViPb5lJw\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1666,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 6990\n        },\n        {\n          \"id\": 2996,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": true,\n          \"watchlist_count\": 2102\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bullish\"\n        },\n        \"chart\": {\n          \"thumb\": \"http://VxzoEZFzXJSvImVuoCMKRil.ighisIFt0qFQCSSRoywHueNvt-ByXyETOp6kpY-S0gcGEXckUxJxzd\",\n          \"large\": \"http://kowdcCoDwAybfBlPmOkt.ctjqtWjy9kRJXk5T6yMlv8w6hfTzrCv-faQ-krmK7jCrcf.zSSkRag5..Sg4qm3KnQ0zzAjEZt0s1lZQWi\",\n          \"original\": \"http://oUiPLv.lkydpxyuIqw32Hf362C+BMxqDQFpaEhBwQkAiXWzmAEpYupPnJJLdRb\",\n          \"url\": \"https://icLK.eqMtAj-QpzpMpxcf3NVvSImufwSZQ6zjJqfJu+aNXUfXKydDUVxeTTowfnCio8zhp\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 2115,\n        \"in_reply_to_message_id\": 3922,\n        \"parent\": false,\n        \"replies\": 8357\n      },\n      \"likes\": {\n        \"total\": 2731,\n        \"user_ids\": [\n          8046,\n          4947\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 7151,\n        \"user_ids\": [\n          5093,\n          1730\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6bc81abd-4d6f-45ff-965c-e68637ea3500",
+          "name": "Watchlist Stream",
+          "request": {
+            "name": "Watchlist Stream",
+            "description": {
+              "content": "Returns the most recent messages for the symbols in the specified watchlist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "streams",
+                "watchlist",
+                "{{watchlist_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID greater than the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "max",
+                  "value": "<integer>",
+                  "description": "Returns results with an ID less than or equal to the specified ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "30",
+                  "description": "Number of results to return (default 30, max 30)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "586b5e80-76df-4872-941b-e4983ad0943e",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "watchlist",
+                    "{{watchlist_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6814\n  },\n  \"symbol\": {\n    \"id\": 2268,\n    \"symbol\": \"string\",\n    \"title\": \"string\",\n    \"aliases\": [\n      \"string\",\n      \"string\"\n    ],\n    \"is_following\": true,\n    \"has_pricing\": false,\n    \"watchlist_count\": 2580\n  },\n  \"cursor\": {\n    \"more\": false,\n    \"since\": 8635,\n    \"max\": 7230\n  },\n  \"messages\": [\n    {\n      \"id\": 2336,\n      \"body\": \"string\",\n      \"created_at\": \"2011-10-25T01:25:57.663Z\",\n      \"user\": {\n        \"id\": 667,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"https://bniFWELcZCIYteJYAaINBLinjaJ.ihgEgW5ue2vIQA6M17k5T.,dClJ\",\n        \"avatar_url_ssl\": \"http://wuPCptxONDtVL.yoajQZo.uDFjxS.UnDzCY+kpbmEpCFiCuXEP\",\n        \"join_date\": \"2007-02-10T19:21:16.033Z\",\n        \"official\": false,\n        \"followers\": 2989,\n        \"following\": 3558,\n        \"ideas\": 3278,\n        \"watchlist_stocks_count\": 7341,\n        \"like_count\": 1425,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 4806,\n        \"title\": \"string\",\n        \"url\": \"http://VQSEjziEcqGbJVXAdeGH.meyXFWXIfCSSdtI\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1938,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9220\n        },\n        {\n          \"id\": 6162,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9541\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bearish\"\n        },\n        \"chart\": {\n          \"thumb\": \"https://tyaoSHPLKfgcQGuPuTsHdIpQVZctB.cisyEtDfmVp-mn2ZHAFVRN3d\",\n          \"large\": \"https://HSexuTvnZGFzjofdwvvDYGi.vtDebBlAUdKQSlHDmkZBhIMn7BTm.wy-\",\n          \"original\": \"https://DVYCljIwkKMWMmFPEUIeXtRFIcyHvhuB.vjbxQVS1VxGhjUHLzmQMGIBAVY2KFR.RrfUqInIBUTXbT\",\n          \"url\": \"http://qczWEwB.rmSl746b8oQddSP8aA3UEuDkhkJDil\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 3060,\n        \"in_reply_to_message_id\": 8836,\n        \"parent\": false,\n        \"replies\": 7009\n      },\n      \"likes\": {\n        \"total\": 757,\n        \"user_ids\": [\n          3472,\n          7265\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 4187,\n        \"user_ids\": [\n          7464,\n          4678\n        ]\n      }\n    },\n    {\n      \"id\": 7692,\n      \"body\": \"string\",\n      \"created_at\": \"2015-03-06T01:10:15.509Z\",\n      \"user\": {\n        \"id\": 3705,\n        \"username\": \"string\",\n        \"name\": \"string\",\n        \"avatar_url\": \"http://IRpCHoCEeBCDlNPQdp.isnzM\",\n        \"avatar_url_ssl\": \"http://zXVUxcbjNSiddxA.ibzlxwC4TzEl99f1reC4ZWDI8ZIOCCQ.q0ouAF.Osy7qON-1TscNaNo8anIN7pbCJOas+Umrj3P5\",\n        \"join_date\": \"2019-11-05T20:53:19.559Z\",\n        \"official\": false,\n        \"followers\": 8814,\n        \"following\": 9264,\n        \"ideas\": 7307,\n        \"watchlist_stocks_count\": 6481,\n        \"like_count\": 8622,\n        \"classification\": [\n          \"string\",\n          \"string\"\n        ]\n      },\n      \"source\": {\n        \"id\": 7736,\n        \"title\": \"string\",\n        \"url\": \"https://uitlpOHhhDY.abglViPb5lJw\"\n      },\n      \"symbols\": [\n        {\n          \"id\": 1666,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": false,\n          \"watchlist_count\": 6990\n        },\n        {\n          \"id\": 2996,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": true,\n          \"watchlist_count\": 2102\n        }\n      ],\n      \"entities\": {\n        \"sentiment\": {\n          \"basic\": \"Bullish\"\n        },\n        \"chart\": {\n          \"thumb\": \"http://VxzoEZFzXJSvImVuoCMKRil.ighisIFt0qFQCSSRoywHueNvt-ByXyETOp6kpY-S0gcGEXckUxJxzd\",\n          \"large\": \"http://kowdcCoDwAybfBlPmOkt.ctjqtWjy9kRJXk5T6yMlv8w6hfTzrCv-faQ-krmK7jCrcf.zSSkRag5..Sg4qm3KnQ0zzAjEZt0s1lZQWi\",\n          \"original\": \"http://oUiPLv.lkydpxyuIqw32Hf362C+BMxqDQFpaEhBwQkAiXWzmAEpYupPnJJLdRb\",\n          \"url\": \"https://icLK.eqMtAj-QpzpMpxcf3NVvSImufwSZQ6zjJqfJu+aNXUfXKydDUVxeTTowfnCio8zhp\"\n        }\n      },\n      \"conversation\": {\n        \"parent_message_id\": 2115,\n        \"in_reply_to_message_id\": 3922,\n        \"parent\": false,\n        \"replies\": 8357\n      },\n      \"likes\": {\n        \"total\": 2731,\n        \"user_ids\": [\n          8046,\n          4947\n        ]\n      },\n      \"reshares\": {\n        \"reshared_count\": 7151,\n        \"user_ids\": [\n          5093,\n          1730\n        ]\n      }\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "865cc9b0-c9f7-4c5f-8098-e77fffd9d7a7",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "streams",
+                    "watchlist",
+                    "{{watchlist_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "max",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "30"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 4540\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Ticker symbol, e.g. AAPL, TSLA",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "symbol"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) User ID or username",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "user_id"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The watchlist ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "watchlist_id"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "20ceed51-6d25-42f5-8088-ad10ab7d7188",
+    "name": "StockTwits Account Streams API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

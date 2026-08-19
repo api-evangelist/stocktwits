@@ -1,0 +1,139 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account Messages API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messages",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Show Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/messages/show/:message_id.json",
+            "params": [
+              {
+                "name": "message_id",
+                "value": "",
+                "type": "path",
+                "description": "The message ID"
+              }
+            ]
+          },
+          "docs": "Returns the specified message by ID."
+        },
+        {
+          "info": {
+            "name": "Create Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/messages/create.json",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "body",
+                  "value": ""
+                },
+                {
+                  "name": "in_reply_to_message_id",
+                  "value": ""
+                },
+                {
+                  "name": "sentiment",
+                  "value": ""
+                },
+                {
+                  "name": "chart",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Creates a new message (twit) for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Like Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/messages/like.json",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Likes a message for the authenticated user."
+        },
+        {
+          "info": {
+            "name": "Unlike Message",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.stocktwits.com/api/2/messages/unlike.json",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "id",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "oauth2",
+              "flow": "authorization_code",
+              "authorizationUrl": "https://api.stocktwits.com/api/2/oauth/authorize",
+              "accessTokenUrl": "https://api.stocktwits.com/api/2/oauth/token",
+              "credentials": {
+                "clientId": "{{clientId}}",
+                "clientSecret": "{{clientSecret}}"
+              }
+            }
+          },
+          "docs": "Unlikes a previously liked message for the authenticated user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

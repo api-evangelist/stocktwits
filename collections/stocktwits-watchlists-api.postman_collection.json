@@ -1,0 +1,944 @@
+{
+  "item": [
+    {
+      "id": "7fd11296-c669-4d8c-badf-a02a3a88c983",
+      "name": "Watchlists",
+      "description": {
+        "content": "Watchlist management endpoints for creating and managing symbol watchlists.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "0599b0bb-7ab8-4f44-843a-48a6cc7ad615",
+          "name": "List Watchlists",
+          "request": {
+            "name": "List Watchlists",
+            "description": {
+              "content": "Returns all watchlists for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlists.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "8bd997ea-12bf-4972-9ebb-5b7207f1b8fe",
+              "name": "Successful response with watchlists",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 9589\n  },\n  \"watchlists\": [\n    {\n      \"id\": 2666,\n      \"name\": \"string\",\n      \"static\": false,\n      \"updated_at\": \"2002-08-30T01:50:25.814Z\",\n      \"created_at\": \"1970-01-08T09:33:53.133Z\",\n      \"symbols\": [\n        {\n          \"id\": 3608,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 4853\n        },\n        {\n          \"id\": 9547,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 6979\n        }\n      ]\n    },\n    {\n      \"id\": 8770,\n      \"name\": \"string\",\n      \"static\": false,\n      \"updated_at\": \"1996-09-28T14:19:17.994Z\",\n      \"created_at\": \"2021-01-07T17:45:31.189Z\",\n      \"symbols\": [\n        {\n          \"id\": 3415,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": false,\n          \"has_pricing\": false,\n          \"watchlist_count\": 9856\n        },\n        {\n          \"id\": 3999,\n          \"symbol\": \"string\",\n          \"title\": \"string\",\n          \"aliases\": [\n            \"string\",\n            \"string\"\n          ],\n          \"is_following\": true,\n          \"has_pricing\": true,\n          \"watchlist_count\": 2622\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "39891433-7e82-47c6-931b-f009a51e2117",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6610\n  },\n  \"errors\": [\n    {\n      \"message\": \"string\"\n    },\n    {\n      \"message\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "baad6149-dce5-436d-b26f-ab0a04b7fad8",
+          "name": "Create Watchlist",
+          "request": {
+            "name": "Create Watchlist",
+            "description": {
+              "content": "Creates a new watchlist for the authenticated user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlists",
+                "create.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) The name of the watchlist"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5cae4961-6171-47fb-836e-411dca0634c5",
+              "name": "Watchlist created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "create.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The name of the watchlist",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 2893\n  },\n  \"watchlist\": {\n    \"id\": 9490,\n    \"name\": \"string\",\n    \"static\": false,\n    \"updated_at\": \"1996-06-15T06:06:48.564Z\",\n    \"created_at\": \"1969-12-30T05:56:54.880Z\",\n    \"symbols\": [\n      {\n        \"id\": 2673,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6624\n      },\n      {\n        \"id\": 7388,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 5426\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8260410c-f638-4b3f-bf9c-62e5c70e3ddb",
+          "name": "Update Watchlist",
+          "request": {
+            "name": "Update Watchlist",
+            "description": {
+              "content": "Updates the name of an existing watchlist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlists",
+                "update",
+                "{{watchlist_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "name",
+                  "value": "<string>",
+                  "description": "(Required) The new name of the watchlist"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e946ff64-22c6-4d1a-90ca-d51726333729",
+              "name": "Watchlist updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "update",
+                    "{{watchlist_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) The new name of the watchlist",
+                        "type": "text/plain"
+                      },
+                      "key": "name",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 2893\n  },\n  \"watchlist\": {\n    \"id\": 9490,\n    \"name\": \"string\",\n    \"static\": false,\n    \"updated_at\": \"1996-06-15T06:06:48.564Z\",\n    \"created_at\": \"1969-12-30T05:56:54.880Z\",\n    \"symbols\": [\n      {\n        \"id\": 2673,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6624\n      },\n      {\n        \"id\": 7388,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 5426\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8d17df9e-4a7f-43fe-85e1-508aec926752",
+          "name": "Delete Watchlist",
+          "request": {
+            "name": "Delete Watchlist",
+            "description": {
+              "content": "Deletes an existing watchlist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlists",
+                "destroy",
+                "{{watchlist_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "6627e54b-3bf3-4dfa-bc59-d64f48df67f3",
+              "name": "Watchlist deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "destroy",
+                    "{{watchlist_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 2893\n  },\n  \"watchlist\": {\n    \"id\": 9490,\n    \"name\": \"string\",\n    \"static\": false,\n    \"updated_at\": \"1996-06-15T06:06:48.564Z\",\n    \"created_at\": \"1969-12-30T05:56:54.880Z\",\n    \"symbols\": [\n      {\n        \"id\": 2673,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6624\n      },\n      {\n        \"id\": 7388,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 5426\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a9c85b23-40e0-4f77-aa0f-29b2598a53e7",
+          "name": "Add Symbol to Watchlist",
+          "request": {
+            "name": "Add Symbol to Watchlist",
+            "description": {
+              "content": "Adds symbols to an existing watchlist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlists",
+                ":watchlist_id",
+                "symbols",
+                "create.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "watchlist_id",
+                  "description": "(Required) The watchlist ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of ticker symbols to add (e.g. AAPL,TSLA,GOOG)"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c23400a5-f5f5-465b-8142-f644a6f9989a",
+              "name": "Symbols added successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    ":watchlist_id",
+                    "symbols",
+                    "create.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "watchlist_id",
+                      "description": "(Required) The watchlist ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Comma-separated list of ticker symbols to add (e.g. AAPL,TSLA,GOOG)",
+                        "type": "text/plain"
+                      },
+                      "key": "symbols",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 2893\n  },\n  \"watchlist\": {\n    \"id\": 9490,\n    \"name\": \"string\",\n    \"static\": false,\n    \"updated_at\": \"1996-06-15T06:06:48.564Z\",\n    \"created_at\": \"1969-12-30T05:56:54.880Z\",\n    \"symbols\": [\n      {\n        \"id\": 2673,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6624\n      },\n      {\n        \"id\": 7388,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 5426\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c194e4a-ffc9-4b77-8530-1ed62839da93",
+          "name": "Remove Symbol from Watchlist",
+          "request": {
+            "name": "Remove Symbol from Watchlist",
+            "description": {
+              "content": "Removes symbols from an existing watchlist.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlists",
+                ":watchlist_id",
+                "symbols",
+                "destroy.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "watchlist_id",
+                  "description": "(Required) The watchlist ID"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            },
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "symbols",
+                  "value": "<string>",
+                  "description": "(Required) Comma-separated list of ticker symbols to remove"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e3f9e4cc-2351-49a7-9a76-8753ba6958df",
+              "name": "Symbols removed successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    ":watchlist_id",
+                    "symbols",
+                    "destroy.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "watchlist_id",
+                      "description": "(Required) The watchlist ID"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) Comma-separated list of ticker symbols to remove",
+                        "type": "text/plain"
+                      },
+                      "key": "symbols",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 2893\n  },\n  \"watchlist\": {\n    \"id\": 9490,\n    \"name\": \"string\",\n    \"static\": false,\n    \"updated_at\": \"1996-06-15T06:06:48.564Z\",\n    \"created_at\": \"1969-12-30T05:56:54.880Z\",\n    \"symbols\": [\n      {\n        \"id\": 2673,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6624\n      },\n      {\n        \"id\": 7388,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 5426\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b74e2c31-bdd4-4d20-91db-43948d3e6105",
+          "name": "Show Watchlist",
+          "request": {
+            "name": "Show Watchlist",
+            "description": {
+              "content": "Returns the specified watchlist with its symbols.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "watchlists",
+                "show",
+                "{{watchlist_id}}.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": {
+              "type": "oauth2",
+              "oauth2": [
+                {
+                  "key": "scope",
+                  "value": "read publish_messages publish_watch_lists follow_users follow_stocks"
+                },
+                {
+                  "key": "accessTokenUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/token"
+                },
+                {
+                  "key": "authUrl",
+                  "value": "https://api.stocktwits.com/api/2/oauth/authorize"
+                },
+                {
+                  "key": "grant_type",
+                  "value": "authorization_code"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "bb84fe34-a48c-456c-a318-0f851b53fef1",
+              "name": "Successful response with watchlist details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "watchlists",
+                    "show",
+                    "{{watchlist_id}}.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: oauth2",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 2893\n  },\n  \"watchlist\": {\n    \"id\": 9490,\n    \"name\": \"string\",\n    \"static\": false,\n    \"updated_at\": \"1996-06-15T06:06:48.564Z\",\n    \"created_at\": \"1969-12-30T05:56:54.880Z\",\n    \"symbols\": [\n      {\n        \"id\": 2673,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 6624\n      },\n      {\n        \"id\": 7388,\n        \"symbol\": \"string\",\n        \"title\": \"string\",\n        \"aliases\": [\n          \"string\",\n          \"string\"\n        ],\n        \"is_following\": true,\n        \"has_pricing\": true,\n        \"watchlist_count\": 5426\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) The watchlist ID",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<integer>",
+      "key": "watchlist_id"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "8ea28c9e-1776-4d76-b678-326f2d205864",
+    "name": "StockTwits Account Watchlists API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

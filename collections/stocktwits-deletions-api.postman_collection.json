@@ -1,0 +1,203 @@
+{
+  "item": [
+    {
+      "id": "27a8f08b-a535-4e12-8a84-59136c42224f",
+      "name": "Deletions",
+      "description": {
+        "content": "Deletion tracking endpoints for finding messages and users that have been removed.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dc9807ae-22cc-4a3c-8b97-c6c10bae00f4",
+          "name": "Deleted Messages",
+          "request": {
+            "name": "Deleted Messages",
+            "description": {
+              "content": "Returns a list of message IDs that have been deleted since the specified ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deletions",
+                "messages.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "(Required) Returns deleted message IDs greater than this ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "924edb83-e7bb-4eae-9794-323b8924bb22",
+              "name": "Successful response with deleted message IDs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deletions",
+                    "messages.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 6298\n  },\n  \"messages\": [\n    {\n      \"id\": 8197,\n      \"user_id\": 1459\n    },\n    {\n      \"id\": 5590,\n      \"user_id\": 6161\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6b57bb97-22ab-4eb7-bf84-fe92dbd6ed79",
+          "name": "Deleted Users",
+          "request": {
+            "name": "Deleted Users",
+            "description": {
+              "content": "Returns a list of user IDs that have been deleted since the specified ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "deletions",
+                "users.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "since",
+                  "value": "<integer>",
+                  "description": "(Required) Returns deleted user IDs greater than this ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7c27462-929b-4670-8e7f-4aef50801ae5",
+              "name": "Successful response with deleted user IDs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "deletions",
+                    "users.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "since",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"response\": {\n    \"status\": 944\n  },\n  \"users\": [\n    {\n      \"id\": 9234\n    },\n    {\n      \"id\": 5297\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.stocktwits.com/api/2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "noauth"
+  },
+  "info": {
+    "_postman_id": "d0870646-1426-43fb-8108-d339eb9b981c",
+    "name": "StockTwits Account Deletions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.\n\nContact Support:\n Name: StockTwits",
+      "type": "text/plain"
+    }
+  }
+}

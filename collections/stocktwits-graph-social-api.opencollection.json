@@ -1,0 +1,56 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account Graph (Social) API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Graph (Social)",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "User Following",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/graph/user/:user_id/following.json",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "User ID or username"
+              }
+            ]
+          },
+          "docs": "Returns the list of users the specified user is following."
+        },
+        {
+          "info": {
+            "name": "User Followers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/graph/user/:user_id/followers.json",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path",
+                "description": "User ID or username"
+              }
+            ]
+          },
+          "docs": "Returns the list of users following the specified user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

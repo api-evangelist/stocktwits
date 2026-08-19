@@ -1,0 +1,75 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "StockTwits Account Search API",
+    "version": "2.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/search.json",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query (prefix match for symbols and usernames)"
+              }
+            ]
+          },
+          "docs": "Search for symbols and users on StockTwits."
+        },
+        {
+          "info": {
+            "name": "Search Symbols",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/search/symbols.json",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query for symbol lookup"
+              }
+            ]
+          },
+          "docs": "Search for symbols on StockTwits."
+        },
+        {
+          "info": {
+            "name": "Search Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.stocktwits.com/api/2/search/users.json",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "The search query for user lookup"
+              }
+            ]
+          },
+          "docs": "Search for users on StockTwits."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
