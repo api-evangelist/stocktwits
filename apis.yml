@@ -202,8 +202,9 @@ common:
   url: packages/stocktwits-packages.yml
 - type: WellKnown
   url: well-known/stocktwits-well-known.yml
-- type: MCPServer
+- type: X-MCPServerCandidate
   url: mcp/stocktwits-mcp.yml
+  note: 'Renamed from MCPServer 2026-09-03 (roadmap#247): the manifest self-describes as status: candidate — a tool list derived from the published API contracts, not an existing server. The scorer already read the manifest and reported mcp_server correctly; the MCPServer type was crediting the artifact-type surfaces with a server that does not exist.'
 - type: LLMsTxt
   url: llms/stocktwits-llms.txt
 - type: Overlay
