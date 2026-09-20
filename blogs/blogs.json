@@ -3,12 +3,9 @@
   "feeds": [
     {
       "source": "https://help.stocktwits.com/",
-      "feed_url": "https://help.stocktwits.com/",
-      "title": "",
-      "saved": 0,
-      "method": "none"
+      "error": "HTTPError"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-09-13T13:00:00Z"
+  "fetched": "2026-09-19T20:17:39Z"
 }
