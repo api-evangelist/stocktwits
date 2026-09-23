@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: StockTwits Account API
   description: The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.
@@ -82,6 +82,22 @@ paths:
                     $ref: '#/components/schemas/User'
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
     User:
       type: object
       properties:
@@ -129,22 +145,6 @@ components:
           items:
             type: string
           description: User classification tags (e.g. suggested, official)
-    ErrorResponse:
-      type: object
-      properties:
-        response:
-          type: object
-          properties:
-            status:
-              type: integer
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message description
     ResponseStatus:
       type: object
       properties:

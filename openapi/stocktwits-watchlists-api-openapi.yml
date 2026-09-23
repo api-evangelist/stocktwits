@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: StockTwits Account Watchlists API
+  title: StockTwits Watchlists API
   description: The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.
   version: '2.0'
   contact:
@@ -265,6 +265,44 @@ paths:
                     $ref: '#/components/schemas/Watchlist'
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
+    Watchlist:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique watchlist ID
+        name:
+          type: string
+          description: The watchlist name
+        static:
+          type: boolean
+          description: Whether the watchlist is a default/static list
+        updated_at:
+          type: string
+          format: date-time
+        created_at:
+          type: string
+          format: date-time
+        symbols:
+          type: array
+          items:
+            $ref: '#/components/schemas/Symbol'
     Symbol:
       type: object
       properties:
@@ -297,44 +335,6 @@ components:
         status:
           type: integer
           description: HTTP status code (200 for success)
-    Watchlist:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Unique watchlist ID
-        name:
-          type: string
-          description: The watchlist name
-        static:
-          type: boolean
-          description: Whether the watchlist is a default/static list
-        updated_at:
-          type: string
-          format: date-time
-        created_at:
-          type: string
-          format: date-time
-        symbols:
-          type: array
-          items:
-            $ref: '#/components/schemas/Symbol'
-    ErrorResponse:
-      type: object
-      properties:
-        response:
-          type: object
-          properties:
-            status:
-              type: integer
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message description
   securitySchemes:
     oauth2:
       type: oauth2

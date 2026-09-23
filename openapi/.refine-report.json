@@ -1,15 +1,7 @@
 {
   "provider": "stocktwits",
   "sources": [
-    "stocktwits-account-api-openapi.yml",
-    "stocktwits-deletions-api-openapi.yml",
-    "stocktwits-friendships-api-openapi.yml",
-    "stocktwits-graph-social-api-openapi.yml",
-    "stocktwits-messages-api-openapi.yml",
-    "stocktwits-search-api-openapi.yml",
-    "stocktwits-streams-api-openapi.yml",
-    "stocktwits-trending-api-openapi.yml",
-    "stocktwits-watchlists-api-openapi.yml"
+    "_original/stocktwits-openapi-original.json"
   ],
   "outputs": [
     "stocktwits-account-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "stocktwits-openapi-original.json: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "stocktwits-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stocktwits-deletions-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stocktwits-friendships-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stocktwits-graph-social-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stocktwits-messages-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stocktwits-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stocktwits-streams-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stocktwits-trending-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "stocktwits-watchlists-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

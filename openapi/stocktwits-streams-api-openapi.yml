@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: StockTwits Account Streams API
+  title: StockTwits Streams API
   description: The StockTwits API provides access to the StockTwits social network for investors and traders. It allows developers to access streams of messages (twits), user profiles, trending symbols, and more. StockTwits is a social media platform designed for sharing ideas between investors, traders, and entrepreneurs.
   version: '2.0'
   contact:
@@ -340,6 +340,77 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    Symbol:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique symbol ID
+        symbol:
+          type: string
+          description: The ticker symbol (e.g. AAPL)
+        title:
+          type: string
+          description: The full company/asset name
+        aliases:
+          type: array
+          items:
+            type: string
+          description: Alternative names or aliases
+        is_following:
+          type: boolean
+          description: Whether the authenticated user is following this symbol
+        has_pricing:
+          type: boolean
+          description: Whether pricing data is available for this symbol
+        watchlist_count:
+          type: integer
+          description: Number of users who have this symbol in their watchlist
+    ResponseStatus:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
+    StreamResponse:
+      type: object
+      properties:
+        response:
+          $ref: '#/components/schemas/ResponseStatus'
+        symbol:
+          $ref: '#/components/schemas/Symbol'
+        cursor:
+          type: object
+          properties:
+            more:
+              type: boolean
+              description: Whether there are more results available
+            since:
+              type: integer
+              description: The ID to use for the since parameter to get newer results
+            max:
+              type: integer
+              description: The ID to use for the max parameter to get older results
+        messages:
+          type: array
+          items:
+            $ref: '#/components/schemas/Message'
+    ErrorResponse:
+      type: object
+      properties:
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
     User:
       type: object
       properties:
@@ -387,28 +458,6 @@ components:
           items:
             type: string
           description: User classification tags (e.g. suggested, official)
-    ResponseStatus:
-      type: object
-      properties:
-        status:
-          type: integer
-          description: HTTP status code (200 for success)
-    ErrorResponse:
-      type: object
-      properties:
-        response:
-          type: object
-          properties:
-            status:
-              type: integer
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message description
     Message:
       type: object
       properties:
@@ -442,8 +491,9 @@ components:
           type: object
           properties:
             sentiment:
-              type: object
-              nullable: true
+              type:
+              - object
+              - 'null'
               properties:
                 basic:
                   type: string
@@ -452,8 +502,9 @@ components:
                   - Bearish
                   description: The sentiment of the message
             chart:
-              type: object
-              nullable: true
+              type:
+              - object
+              - 'null'
               properties:
                 thumb:
                   type: string
@@ -468,8 +519,9 @@ components:
                   type: string
                   format: uri
         conversation:
-          type: object
-          nullable: true
+          type:
+          - object
+          - 'null'
           properties:
             parent_message_id:
               type: integer
@@ -497,55 +549,6 @@ components:
               type: array
               items:
                 type: integer
-    Symbol:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Unique symbol ID
-        symbol:
-          type: string
-          description: The ticker symbol (e.g. AAPL)
-        title:
-          type: string
-          description: The full company/asset name
-        aliases:
-          type: array
-          items:
-            type: string
-          description: Alternative names or aliases
-        is_following:
-          type: boolean
-          description: Whether the authenticated user is following this symbol
-        has_pricing:
-          type: boolean
-          description: Whether pricing data is available for this symbol
-        watchlist_count:
-          type: integer
-          description: Number of users who have this symbol in their watchlist
-    StreamResponse:
-      type: object
-      properties:
-        response:
-          $ref: '#/components/schemas/ResponseStatus'
-        symbol:
-          $ref: '#/components/schemas/Symbol'
-        cursor:
-          type: object
-          properties:
-            more:
-              type: boolean
-              description: Whether there are more results available
-            since:
-              type: integer
-              description: The ID to use for the since parameter to get newer results
-            max:
-              type: integer
-              description: The ID to use for the max parameter to get older results
-        messages:
-          type: array
-          items:
-            $ref: '#/components/schemas/Message'
   securitySchemes:
     oauth2:
       type: oauth2
