@@ -265,22 +265,12 @@ paths:
                     $ref: '#/components/schemas/Watchlist'
 components:
   schemas:
-    ErrorResponse:
+    ResponseStatus:
       type: object
       properties:
-        response:
-          type: object
-          properties:
-            status:
-              type: integer
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message description
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
     Watchlist:
       type: object
       properties:
@@ -303,6 +293,22 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Symbol'
+    ErrorResponse:
+      type: object
+      properties:
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
     Symbol:
       type: object
       properties:
@@ -329,12 +335,6 @@ components:
         watchlist_count:
           type: integer
           description: Number of users who have this symbol in their watchlist
-    ResponseStatus:
-      type: object
-      properties:
-        status:
-          type: integer
-          description: HTTP status code (200 for success)
   securitySchemes:
     oauth2:
       type: oauth2
