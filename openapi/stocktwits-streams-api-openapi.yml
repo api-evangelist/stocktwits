@@ -413,22 +413,6 @@ components:
         watchlist_count:
           type: integer
           description: Number of users who have this symbol in their watchlist
-    ErrorResponse:
-      type: object
-      properties:
-        response:
-          type: object
-          properties:
-            status:
-              type: integer
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message description
     Message:
       type: object
       properties:
@@ -520,12 +504,22 @@ components:
               type: array
               items:
                 type: integer
-    ResponseStatus:
+    ErrorResponse:
       type: object
       properties:
-        status:
-          type: integer
-          description: HTTP status code (200 for success)
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
     StreamResponse:
       type: object
       properties:
@@ -549,6 +543,12 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Message'
+    ResponseStatus:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
   securitySchemes:
     oauth2:
       type: oauth2

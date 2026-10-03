@@ -259,22 +259,6 @@ components:
         watchlist_count:
           type: integer
           description: Number of users who have this symbol in their watchlist
-    ErrorResponse:
-      type: object
-      properties:
-        response:
-          type: object
-          properties:
-            status:
-              type: integer
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message description
     Message:
       type: object
       properties:
@@ -366,6 +350,22 @@ components:
               type: array
               items:
                 type: integer
+    ErrorResponse:
+      type: object
+      properties:
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
     ResponseStatus:
       type: object
       properties:

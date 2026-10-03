@@ -118,12 +118,32 @@ paths:
                       $ref: '#/components/schemas/User'
 components:
   schemas:
-    ResponseStatus:
+    Symbol:
       type: object
       properties:
-        status:
+        id:
           type: integer
-          description: HTTP status code (200 for success)
+          description: Unique symbol ID
+        symbol:
+          type: string
+          description: The ticker symbol (e.g. AAPL)
+        title:
+          type: string
+          description: The full company/asset name
+        aliases:
+          type: array
+          items:
+            type: string
+          description: Alternative names or aliases
+        is_following:
+          type: boolean
+          description: Whether the authenticated user is following this symbol
+        has_pricing:
+          type: boolean
+          description: Whether pricing data is available for this symbol
+        watchlist_count:
+          type: integer
+          description: Number of users who have this symbol in their watchlist
     User:
       type: object
       properties:
@@ -171,32 +191,12 @@ components:
           items:
             type: string
           description: User classification tags (e.g. suggested, official)
-    Symbol:
+    ResponseStatus:
       type: object
       properties:
-        id:
+        status:
           type: integer
-          description: Unique symbol ID
-        symbol:
-          type: string
-          description: The ticker symbol (e.g. AAPL)
-        title:
-          type: string
-          description: The full company/asset name
-        aliases:
-          type: array
-          items:
-            type: string
-          description: Alternative names or aliases
-        is_following:
-          type: boolean
-          description: Whether the authenticated user is following this symbol
-        has_pricing:
-          type: boolean
-          description: Whether pricing data is available for this symbol
-        watchlist_count:
-          type: integer
-          description: Number of users who have this symbol in their watchlist
+          description: HTTP status code (200 for success)
   securitySchemes:
     oauth2:
       type: oauth2
