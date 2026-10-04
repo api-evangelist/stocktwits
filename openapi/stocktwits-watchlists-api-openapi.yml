@@ -265,32 +265,6 @@ paths:
                     $ref: '#/components/schemas/Watchlist'
 components:
   schemas:
-    Symbol:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Unique symbol ID
-        symbol:
-          type: string
-          description: The ticker symbol (e.g. AAPL)
-        title:
-          type: string
-          description: The full company/asset name
-        aliases:
-          type: array
-          items:
-            type: string
-          description: Alternative names or aliases
-        is_following:
-          type: boolean
-          description: Whether the authenticated user is following this symbol
-        has_pricing:
-          type: boolean
-          description: Whether pricing data is available for this symbol
-        watchlist_count:
-          type: integer
-          description: Number of users who have this symbol in their watchlist
     ErrorResponse:
       type: object
       properties:
@@ -329,6 +303,32 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Symbol'
+    Symbol:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique symbol ID
+        symbol:
+          type: string
+          description: The ticker symbol (e.g. AAPL)
+        title:
+          type: string
+          description: The full company/asset name
+        aliases:
+          type: array
+          items:
+            type: string
+          description: Alternative names or aliases
+        is_following:
+          type: boolean
+          description: Whether the authenticated user is following this symbol
+        has_pricing:
+          type: boolean
+          description: Whether pricing data is available for this symbol
+        watchlist_count:
+          type: integer
+          description: Number of users who have this symbol in their watchlist
     ResponseStatus:
       type: object
       properties:

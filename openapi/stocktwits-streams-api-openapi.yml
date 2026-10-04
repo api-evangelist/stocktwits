@@ -387,32 +387,29 @@ components:
           items:
             type: string
           description: User classification tags (e.g. suggested, official)
-    Symbol:
+    StreamResponse:
       type: object
       properties:
-        id:
-          type: integer
-          description: Unique symbol ID
+        response:
+          $ref: '#/components/schemas/ResponseStatus'
         symbol:
-          type: string
-          description: The ticker symbol (e.g. AAPL)
-        title:
-          type: string
-          description: The full company/asset name
-        aliases:
+          $ref: '#/components/schemas/Symbol'
+        cursor:
+          type: object
+          properties:
+            more:
+              type: boolean
+              description: Whether there are more results available
+            since:
+              type: integer
+              description: The ID to use for the since parameter to get newer results
+            max:
+              type: integer
+              description: The ID to use for the max parameter to get older results
+        messages:
           type: array
           items:
-            type: string
-          description: Alternative names or aliases
-        is_following:
-          type: boolean
-          description: Whether the authenticated user is following this symbol
-        has_pricing:
-          type: boolean
-          description: Whether pricing data is available for this symbol
-        watchlist_count:
-          type: integer
-          description: Number of users who have this symbol in their watchlist
+            $ref: '#/components/schemas/Message'
     Message:
       type: object
       properties:
@@ -520,29 +517,32 @@ components:
               message:
                 type: string
                 description: Error message description
-    StreamResponse:
+    Symbol:
       type: object
       properties:
-        response:
-          $ref: '#/components/schemas/ResponseStatus'
+        id:
+          type: integer
+          description: Unique symbol ID
         symbol:
-          $ref: '#/components/schemas/Symbol'
-        cursor:
-          type: object
-          properties:
-            more:
-              type: boolean
-              description: Whether there are more results available
-            since:
-              type: integer
-              description: The ID to use for the since parameter to get newer results
-            max:
-              type: integer
-              description: The ID to use for the max parameter to get older results
-        messages:
+          type: string
+          description: The ticker symbol (e.g. AAPL)
+        title:
+          type: string
+          description: The full company/asset name
+        aliases:
           type: array
           items:
-            $ref: '#/components/schemas/Message'
+            type: string
+          description: Alternative names or aliases
+        is_following:
+          type: boolean
+          description: Whether the authenticated user is following this symbol
+        has_pricing:
+          type: boolean
+          description: Whether pricing data is available for this symbol
+        watchlist_count:
+          type: integer
+          description: Number of users who have this symbol in their watchlist
     ResponseStatus:
       type: object
       properties:
