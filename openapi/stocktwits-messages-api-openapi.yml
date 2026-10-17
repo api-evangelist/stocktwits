@@ -186,53 +186,6 @@ paths:
                     $ref: '#/components/schemas/Message'
 components:
   schemas:
-    User:
-      type: object
-      properties:
-        id:
-          type: integer
-          description: Unique user ID
-        username:
-          type: string
-          description: The user's username
-        name:
-          type: string
-          description: The user's display name
-        avatar_url:
-          type: string
-          format: uri
-          description: URL to the user's avatar image
-        avatar_url_ssl:
-          type: string
-          format: uri
-          description: HTTPS URL to the user's avatar image
-        join_date:
-          type: string
-          format: date-time
-          description: Date the user joined StockTwits
-        official:
-          type: boolean
-          description: Whether the user is an official/verified account
-        followers:
-          type: integer
-          description: Number of followers
-        following:
-          type: integer
-          description: Number of users being followed
-        ideas:
-          type: integer
-          description: Number of messages posted
-        watchlist_stocks_count:
-          type: integer
-          description: Number of stocks in the user's watchlist
-        like_count:
-          type: integer
-          description: Number of likes received
-        classification:
-          type: array
-          items:
-            type: string
-          description: User classification tags (e.g. suggested, official)
     Message:
       type: object
       properties:
@@ -366,6 +319,53 @@ components:
         watchlist_count:
           type: integer
           description: Number of users who have this symbol in their watchlist
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unique user ID
+        username:
+          type: string
+          description: The user's username
+        name:
+          type: string
+          description: The user's display name
+        avatar_url:
+          type: string
+          format: uri
+          description: URL to the user's avatar image
+        avatar_url_ssl:
+          type: string
+          format: uri
+          description: HTTPS URL to the user's avatar image
+        join_date:
+          type: string
+          format: date-time
+          description: Date the user joined StockTwits
+        official:
+          type: boolean
+          description: Whether the user is an official/verified account
+        followers:
+          type: integer
+          description: Number of followers
+        following:
+          type: integer
+          description: Number of users being followed
+        ideas:
+          type: integer
+          description: Number of messages posted
+        watchlist_stocks_count:
+          type: integer
+          description: Number of stocks in the user's watchlist
+        like_count:
+          type: integer
+          description: Number of likes received
+        classification:
+          type: array
+          items:
+            type: string
+          description: User classification tags (e.g. suggested, official)
     ResponseStatus:
       type: object
       properties:

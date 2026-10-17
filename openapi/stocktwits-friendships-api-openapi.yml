@@ -84,22 +84,12 @@ paths:
                     $ref: '#/components/schemas/User'
 components:
   schemas:
-    ErrorResponse:
+    ResponseStatus:
       type: object
       properties:
-        response:
-          type: object
-          properties:
-            status:
-              type: integer
-        errors:
-          type: array
-          items:
-            type: object
-            properties:
-              message:
-                type: string
-                description: Error message description
+        status:
+          type: integer
+          description: HTTP status code (200 for success)
     User:
       type: object
       properties:
@@ -147,12 +137,22 @@ components:
           items:
             type: string
           description: User classification tags (e.g. suggested, official)
-    ResponseStatus:
+    ErrorResponse:
       type: object
       properties:
-        status:
-          type: integer
-          description: HTTP status code (200 for success)
+        response:
+          type: object
+          properties:
+            status:
+              type: integer
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Error message description
   securitySchemes:
     oauth2:
       type: oauth2
