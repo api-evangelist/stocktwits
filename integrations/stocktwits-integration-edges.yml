@@ -25,8 +25,34 @@ edges:
     builder: unknown (not in the directory record)
   detected_by: sweep-workflow-automation.py
   first_seen: '2026-10-15'
+- partner_name: Databricks Marketplace
+  partner: databricks
+  partner_match: aggregator
+  type: marketplace
+  marketplace: databricks-marketplace
+  channel: distribution
+  relationship: distribution-channel
+  direction: third-party
+  evidence: https://marketplace.databricks.com/provider/5a0c3b75-3984-4bd3-8aae-f2c9e740da60
+  category: data product listing
+  contract_reference:
+    register: Databricks Marketplace (marketplace.databricks.com/api/2.0/public-marketplace-providers + public-marketplace-listings)
+    spec_file: null
+    role: data-marketplace-seller
+    registered_name: Stocktwits
+    matched_domain: stocktwits.com
+    matched_by: domain
+    listings: 1
+    sample_listings:
+    - Stocktwits Messages API
+    signal_note: 'participation: the provider lists data products on this marketplace; counts are context'
+    detected_by: sweep-data-marketplaces.py
+    detected: '2026-10-20'
+  detected_by: sweep-data-marketplaces.py
+  detected: '2026-10-20'
 method: searched
 checked:
 - https://zapier.com/api/v4/apps/
+- https://marketplace.databricks.com/
 source:
 - https://zapier.com/api/v4/apps/

@@ -28,3 +28,29 @@
     builder: unknown (not in the directory record)
   status: not-a-workflow
   arazzo: null
+- slug: stocktwits-databricks-marketplace
+  label: Databricks Marketplace
+  partner: databricks
+  partner_name: Databricks Marketplace
+  category: data product listing
+  type: marketplace
+  marketplace: databricks-marketplace
+  channel: distribution
+  evidence: https://marketplace.databricks.com/provider/5a0c3b75-3984-4bd3-8aae-f2c9e740da60
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Databricks Marketplace (marketplace.databricks.com/api/2.0/public-marketplace-providers + public-marketplace-listings)
+    spec_file: null
+    role: data-marketplace-seller
+    registered_name: Stocktwits
+    matched_domain: stocktwits.com
+    matched_by: domain
+    listings: 1
+    sample_listings:
+    - Stocktwits Messages API
+    signal_note: 'participation: the provider lists data products on this marketplace; counts are context'
+    detected_by: sweep-data-marketplaces.py
+    detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
